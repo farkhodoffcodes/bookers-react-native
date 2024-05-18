@@ -1,3 +1,5 @@
 export default function FireBaseConfigure() {
-    return ()
+    return (
+        <h1></h1>
+    )
 }
