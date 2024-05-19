@@ -1,5 +1,9 @@
+import { View } from "react-native";
+
 export default function Calendar() {
     return (
-        <ThemedText type="title">Calendar</ThemedText>
+        <View>
+            
+        </View>
     )
 }
