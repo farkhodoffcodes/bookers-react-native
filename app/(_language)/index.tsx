@@ -1,5 +1,9 @@
+import { Text, View } from "react-native";
+
 export default function Language() {
     return (
-        <ThemedText type="title">Language</ThemedText>
+        <View>
+            <Text>Salom</Text>
+        </View>
     )
 }
