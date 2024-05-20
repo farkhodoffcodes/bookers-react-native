@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { ThemedView } from "@/components/ThemedView";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 
 interface Props {
 	back: boolean;
@@ -14,15 +13,15 @@ const Navbar: React.FC<Props> = ({ back, centerName, name, icons }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.left}>
-				{back && <Text style={styles.back}>Back</Text>}
+				{back && <AntDesign name="left" size={24} color="white" />}
 				{!centerName && <Text style={styles.name}>{name}</Text>}
 			</View>
 			{centerName && <Text style={styles.centerName}>{name}</Text>}
 			<View style={styles.right}>
 				{icons && (
 					<>
-						<Ionicons name="notifications-outline" size={24} color="black" style={styles.icon} />
-						<Ionicons name="bookmark-outline" size={24} color="black" style={styles.icon} />
+						<Ionicons name="notifications-outline" size={24} color="white" style={styles.icon} />
+						<Ionicons name="bookmark-outline" size={24} color="white" style={styles.icon} />
 					</>
 				)}
 			</View>
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
-		padding: 10,
+		padding: 20,
 		// backgroundColor: "#fff", // Or your preferred background color
 		// borderBottomWidth: 1,
 		// borderBottomColor: "#ddd",
@@ -52,12 +51,12 @@ const styles = StyleSheet.create({
 	},
 	name: {
 		fontSize: 18,
-		color: "#000",
+		color: "#fff",
 		fontWeight: "bold", // Or your preferred text color
 	},
 	centerName: {
 		fontSize: 18,
-		color: "#000", // Or your preferred text color
+		color: "#fff", // Or your preferred text color
 		position: "absolute",
 		left: "50%",
 		transform: [{ translateX: -50 }],
