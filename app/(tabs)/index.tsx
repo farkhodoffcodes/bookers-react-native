@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Navbar from "../(navigation)/navbar";
 import MasterCard from "@/components/cards/aboutMaster";
+import CustomButton from "./../../components/(buttons)/index";
 
 const filters = [
 	"Все",
@@ -63,9 +64,12 @@ const HomeScreen = () => {
 						<Text style={styles.description}>
 							Найдите лучшие мастера в этом районе и запишитесь на прием онлайн!
 						</Text>
-						<TouchableOpacity style={styles.button}>
-							<Text style={styles.buttonText}>Найти мастеров</Text>
-						</TouchableOpacity>
+						<CustomButton
+							title="Найти мастеров"
+							backgroundColor="#B00020"
+							textColor="white"
+							onPress={() => console.log("")}
+						/>
 					</View>
 				</View>
 				<Text style={styles.title}>Мои мастера</Text>
