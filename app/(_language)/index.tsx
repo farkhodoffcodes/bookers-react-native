@@ -11,3 +11,4 @@ export default function Language() {
 		</View>
 	);
 }
+
