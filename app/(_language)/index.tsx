@@ -6,7 +6,7 @@ export default function Language() {
 	return (
 		<View>
 			<TouchableOpacity onPress={() => router.push("/(tabs)")}>
-				<Text style={tw`text-white`}>Salom</Text>
+				<Text className='text-red-700 px-5 mx-10'>Salom</Text>
 			</TouchableOpacity>
 		</View>
 	);
