@@ -10,6 +10,7 @@ type MasterCardProps = {
 	nextAppointment: string;
 	orders: number;
 	clients: number;
+	imageUrl: string;
 };
 
 const MasterCard: React.FC<MasterCardProps> = ({
@@ -20,6 +21,7 @@ const MasterCard: React.FC<MasterCardProps> = ({
 	nextAppointment,
 	orders,
 	clients,
+	imageUrl
 }) => {
 	const renderStars = () => {
 		const stars = [];
@@ -36,7 +38,7 @@ const MasterCard: React.FC<MasterCardProps> = ({
 	return (
 		<View style={styles.card}>
 			<View style={styles.header}>
-				<Image source={{ uri: "https://via.placeholder.com/50" }} style={styles.image} />
+			<Image source={{ uri: imageUrl }} style={styles.image}  />
 				<View style={styles.headerText}>
 					<View style={styles.nameContainer}>
 						<Text style={styles.name}>{name}</Text>
