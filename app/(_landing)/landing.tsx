@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Navbar from "../(navigation)/navbar";
 import MasterCard from "@/components/cards/aboutMaster";
+import tw from "tailwind-react-native-classnames";
 
 const filters = [
 	"Все",
@@ -55,7 +56,9 @@ const HomeScreen = () => {
 
 	return (
 		<View style={styles.container}>
-			<Navbar name="Главная" icons={true} centerName={false} back={false} />
+			<View style={tw`mt-5`}>
+				<Navbar name="Главная" icons={true} centerName={false} back={false} />
+			</View>
 			<ScrollView>
 				<View style={styles.contentContainer}>
 					<Text style={styles.title}>Мои записи</Text>
@@ -95,10 +98,12 @@ const HomeScreen = () => {
 					))}
 				</ScrollView>
 				{loading ? (
-					<ActivityIndicator size="large" color="#B00020" />
+					<View style={tw`h-[100%] p-10`}>
+						<ActivityIndicator size="large" color="#9c0135" />
+					</View>
 				) : (
 					<View style={styles.masterCardsContainer}>
-						{selectedFilter !== "Все" && renderMasterCards(selectedFilter)}
+						<ScrollView>{renderMasterCards(selectedFilter)}</ScrollView>
 					</View>
 				)}
 			</ScrollView>
@@ -109,17 +114,18 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		// paddingVertical: 20,
 		backgroundColor: "#21212e",
 	},
 	contentContainer: {
 		padding: 20,
 	},
 	card: {
-		backgroundColor: "#FFFFFF",
+		backgroundColor: "#b9b9c9",
 		borderRadius: 10,
 		padding: 20,
 		alignItems: "center",
-		shadowColor: "#fff",
+		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,
 			height: 2,
@@ -129,21 +135,21 @@ const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	noRecordsText: {
-		fontSize: 16,
-		color: "#FF0000",
+		fontSize: 20,
+		color: "#9c0135",
 		marginBottom: 10,
 	},
 	description: {
 		fontSize: 14,
-		color: "#777777",
+		color: "#6a6a6e",
 		textAlign: "center",
 		marginBottom: 20,
 	},
 	button: {
-		backgroundColor: "#B00020",
+		backgroundColor: "#9c0135",
 		borderRadius: 5,
 		paddingVertical: 10,
-		paddingHorizontal: 20,
+		paddingHorizontal: 50,
 	},
 	buttonText: {
 		color: "#fff",
@@ -165,27 +171,31 @@ const styles = StyleSheet.create({
 		paddingVertical: 10,
 		paddingHorizontal: 20,
 		borderRadius: 10,
-		backgroundColor: "#fff",
 		borderWidth: 1,
-		borderColor: "#D1D1D1",
+		borderColor: "#767678",
 		marginHorizontal: 5,
 		width: 100,
+		color: "#828282",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
 	},
 	selectedFilterButton: {
-		backgroundColor: "#B00020",
+		backgroundColor: "#b9b9c9",
+		color: "#000",
 	},
 	filterText: {
 		fontSize: 14,
-		color: "#777777",
+		color: "#767678",
 	},
 	selectedFilterText: {
-		color: "#FFFFFF",
+		color: "#000",
+		fontSize: 20,
+		fontWeight: "400",
 	},
 	masterCardsContainer: {
 		padding: 20,
+		backgroundColor: "#21212e",
 	},
 });
 
