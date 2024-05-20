@@ -7,17 +7,17 @@ type Props = {
   title: string;
   backgroundColor: string;
   textColor: string;
-  onPress: () => void;
+ 
 };
 
-const CustomButton: React.FC<Props> = ({ title, backgroundColor, textColor, onPress }) => {
+const CustomButton: React.FC<Props> = ({ title, backgroundColor, textColor}) => {
   return (
     <TouchableOpacity
       style={[
-        tw`m-1 px-5 py-3 rounded-lg`,
+        tw`w-full py-3 rounded-lg`,
         { backgroundColor: backgroundColor,   }
       ]}
-      onPress={onPress}
+   
     >
       <Text style={[{ color: textColor, textAlign: 'center' }]}>
         {title}
