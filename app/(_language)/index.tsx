@@ -8,6 +8,9 @@ export default function Language() {
 			<TouchableOpacity onPress={() => router.push("/(tabs)")}>
 				<Text className='text-red-700 px-5 mx-10'>Salom</Text>
 			</TouchableOpacity>
+			<TouchableOpacity onPress={() => router.push("/(auth)/auth")}>
+				<Text className='text-red-700 px-5 mx-10'>Salom</Text>
+			</TouchableOpacity>
 		</View>
 	);
 }
