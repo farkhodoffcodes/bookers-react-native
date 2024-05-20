@@ -10,7 +10,6 @@ const ChatSupport = () => {
     const handlePress = () => {
         console.log('Support button pressed');
     };
-
     return (
         <View style={tw`flex-1 bg-gray-900`}>
             <Navbar back={false} centerName={false} name='Chat' icons={false} />
