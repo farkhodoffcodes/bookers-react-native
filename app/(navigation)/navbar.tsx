@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		alignItems: "center",
 		padding: 10,
-		backgroundColor: "#fff", // Or your preferred background color
-		borderBottomWidth: 1,
-		borderBottomColor: "#ddd",
+		// backgroundColor: "#fff", // Or your preferred background color
+		// borderBottomWidth: 1,
+		// borderBottomColor: "#ddd",
 		width: "100%",
 	},
 	left: {
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
 	},
 	name: {
 		fontSize: 18,
-		color: "#000", // Or your preferred text color
+		color: "#000",
+		fontWeight: "bold", // Or your preferred text color
 	},
 	centerName: {
 		fontSize: 18,
