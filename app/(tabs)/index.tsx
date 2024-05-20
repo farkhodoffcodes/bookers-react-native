@@ -42,6 +42,7 @@ const HomeScreen = () => {
 			<MasterCard
 				key={`${filter}-${index}`}
 				name="Натали"
+				imageUrl="https://fakeimg.pl/250x100/"
 				alias="Beauty Wave"
 				rating={5}
 				location="Мирабадский р-н, ул. Нурафшон, 32"
