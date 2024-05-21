@@ -40,7 +40,7 @@ export default function RootLayout() {
 				<Stack.Screen name="(_landing)/map" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/auth" options={{ headerShown: false }} />
 				<Stack.Screen name="(sevices)/services" options={{ headerShown: false }} />
-				<Stack.Screen name="(sevices)/idservice" options={{ headerShown: false }} />
+				<Stack.Screen name="(sevices)/idService" options={{ headerShown: false }} />
 				<Stack.Screen name="+not-found" />
 			</Stack>
 
