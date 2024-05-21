@@ -14,7 +14,7 @@ const ModalButton: React.FC<Props> = ({ title, backgroundColor, textColor, onPre
   return (
     <TouchableOpacity
       style={[
-        tw`w-[100%] py-3 rounded-lg`,
+        tw`w-full py-3 rounded-2xl `,
         { backgroundColor: backgroundColor }
       ]}
       onPress={onPress}
@@ -23,9 +23,10 @@ const ModalButton: React.FC<Props> = ({ title, backgroundColor, textColor, onPre
         color: textColor,
         textAlign: 'center',
         fontSize: 18,
-        fontWeight: '600'
+        fontWeight: '500'
       }]}
       >
+        {/* 34,37,38,39,43,44,45 */}
         {title}
       </Text>
     </TouchableOpacity>

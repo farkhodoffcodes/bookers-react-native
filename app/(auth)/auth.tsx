@@ -12,10 +12,10 @@ const Auth = () => {
           title='Бронируйте услуги в сфере красоты и здоровья'
           bottomText='Бронирование свиданий без хлопот с волосами. Bookers позволяет выбрать день, время и стилиста, дает цену и сроки на все услуги в простом в использовании меню.'
           bottomTitle='у любимых мастеров'
-          img={require('../../assets/images/Frame.png')} />
+          img={require('../../assets/images/auth/Frame.png')} />
       </View>
       <View style={{ width: '90%', height: '10%', }}>
-        <ModalButton onPress={() => router.push('/')} title='Продолжить' textColor='white' backgroundColor='#9C0A35' />
+        <ModalButton onPress={() => router.push('/firstWelcome')} title='Продолжить' textColor='white' backgroundColor='#9C0A35' />
       </View>
     </SafeAreaView>
   )
