@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 interface Props {
 	back: boolean;
@@ -10,10 +11,16 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ back, centerName, name, icons }) => {
+	const router = useRouter();
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.left}>
-				{back && <AntDesign name="left" size={24} color="white" />}
+				{back && (
+					<TouchableOpacity onPress={() => router.back()}>
+						<AntDesign name="left" size={24} color="white" />
+					</TouchableOpacity>
+				)}
 				{!centerName && <Text style={styles.name}>{name}</Text>}
 			</View>
 			{centerName && <Text style={styles.centerName}>{name}</Text>}
@@ -35,28 +42,20 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		alignItems: "center",
 		padding: 20,
-		// backgroundColor: "#fff", // Or your preferred background color
-		// borderBottomWidth: 1,
-		// borderBottomColor: "#ddd",
 		width: "100%",
 	},
 	left: {
 		flexDirection: "row",
 		alignItems: "center",
 	},
-	back: {
-		marginRight: 10,
-		fontSize: 18,
-		color: "#007aff", // Or your preferred text color
-	},
 	name: {
 		fontSize: 30,
 		color: "#fff",
-		fontWeight: "bold", // Or your preferred text color
+		fontWeight: "bold",
 	},
 	centerName: {
 		fontSize: 18,
-		color: "#fff", // Or your preferred text color
+		color: "#fff",
 		position: "absolute",
 		left: "50%",
 		transform: [{ translateX: -50 }],
