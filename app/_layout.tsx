@@ -31,6 +31,7 @@ export default function RootLayout() {
 			<Stack initialRouteName="(tabs)">
 				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 				<Stack.Screen name="(_landing)/" options={{ headerShown: false }} />
+				<Stack.Screen name="(_landing)/map" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/auth" options={{ headerShown: false }} />
 				<Stack.Screen name="+not-found" />
 			</Stack>
