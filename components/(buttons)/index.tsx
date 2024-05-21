@@ -14,7 +14,7 @@ const CustomButton: React.FC<Props> = ({ title, backgroundColor, textColor}) => 
   return (
     <TouchableOpacity
       style={[
-        tw`w-[100%] px-9 py-4 rounded-lg`,
+        tw`w-[100%] px-9 py-4 rounded-xl`,
         { backgroundColor: backgroundColor,   }
       ]}
    
