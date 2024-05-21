@@ -14,7 +14,7 @@ const ModalButton: React.FC<Props> = ({ title, backgroundColor, textColor, onPre
   return (
     <TouchableOpacity
       style={[
-        tw`w-[100%] py-3 rounded-lg`,
+        tw`w-full py-3 rounded-lg`,
         { backgroundColor: backgroundColor }
       ]}
       onPress={onPress}
