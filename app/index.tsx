@@ -20,7 +20,7 @@ const Index = () => {
             </View>
             <View style={{ width: '90%' }}>
                 <View style={{marginTop: 10}}>
-                    <ModalButton onPress={() => router.push('/auth')} title='Русский' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => router.push('/(pages)/(notification)/')} title='Русский' textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{marginTop: 10}}>
                     <ModalButton onPress={() => router.push('/auth')} title="O'zbek" textColor='white' backgroundColor='#9C0A35' />
