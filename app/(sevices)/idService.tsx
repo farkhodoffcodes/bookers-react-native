@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Provider, Picker, List } from '@ant-design/react-native';
 import Navbar from '@/app/(navigation)/navbar';
 import tw from 'tailwind-react-native-classnames';
 
@@ -13,29 +12,10 @@ const services = [
 const IdService = () => {
   const [selectedService, setSelectedService] = useState(null);
 
-  const handleChange = (value) => {
-    setSelectedService(value);
-  };
-
   return (
-    <Provider>
-      <View style={tw`bg-gray-900 flex-1`}>
-        <Navbar name="Здоровье и красота волос" centerName={true} icons={false} back={true} />
-        <View style={tw`p-4`}>
-          <List>
-            <Picker
-              data={services}
-              cols={1}
-              value={selectedService}
-              onChange={handleChange}
-            >
-              <List.Item arrow="horizontal">Select Service</List.Item>
-            </Picker>
-          </List>
-          <Text style={styles.selectedText}>Selected Service: {selectedService}</Text>
-        </View>
-      </View>
-    </Provider>
+    <View>
+      
+    </View>
   );
 };
 
