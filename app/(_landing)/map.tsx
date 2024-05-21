@@ -1,7 +1,5 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import MapView, { Marker, Callout } from "react-native-maps";
-import MasterCard from "./../../components/cards/aboutMaster";
 
 interface LocationCoords {
 	latitude: number;
@@ -14,11 +12,7 @@ const initialLocation: LocationCoords = {
 };
 
 const Map = () => {
-	return (
-		<View style={styles.container}>
-
-		</View>
-	);
+	return <View style={styles.container}></View>;
 };
 
 const styles = StyleSheet.create({
@@ -26,7 +20,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 	},
 	calloutContainer: {
-		width: 200, // Adjust width as needed
+		width: 200,
 		padding: 10,
 	},
 });
