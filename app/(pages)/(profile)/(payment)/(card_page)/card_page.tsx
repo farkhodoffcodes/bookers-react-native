@@ -3,14 +3,15 @@ import React from 'react'
 import ModalButton from '@/components/(buttons)/modal-btn';
 import { router } from 'expo-router';
 
-const Index = () => {
+export default function CardPage() {
     return (
-        <SafeAreaView style={styles.container}>
+        <View>
+            <SafeAreaView style={styles.container}>
             <View style={styles.logoContainer}>
-                <Image resizeMode='contain' source={require('../assets/images/logo.png')} />
+                <Image resizeMode='contain' source={require('')} />
             </View>
             <View>
-                <Text style={{ fontSize: 20, color: 'white', marginTop: 15 , marginBottom:8 }}>Bookers Beauty</Text>
+                <Text style={{ fontSize: 20, color: 'white', marginTop: 15 }}>Bookers Beauty</Text>
             </View>
             <View>
                 <Text style={{ fontSize: 21, color: 'white', marginTop: 40 }}>Добро пожаловать!</Text>
@@ -26,14 +27,13 @@ const Index = () => {
                     <ModalButton onPress={() => router.push('/auth')} title="O'zbek" textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{marginTop: 10}}>
-                    <ModalButton onPress={() => router.push('/auth')} title='English' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => router.push('(pages)/(profile)/(payment)/(card_page)/card_page')} title='English' textColor='white' backgroundColor='#9C0A35' />
                 </View>
             </View>
         </SafeAreaView>
+        </View>
     )
 }
-
-export default Index;
 
 const styles = StyleSheet.create({
     container: {
