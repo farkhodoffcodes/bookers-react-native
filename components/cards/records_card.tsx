@@ -1,16 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import { Feather } from '@expo/vector-icons';
-import MasterCard from './aboutMaster';
 
 interface ICardRecordsProp {
     name: string;
     label: string;
     openCard: () => void;
     isOpenCard: boolean;
+    openChildComponent: JSX.Element // ochilishi kerak bulgan component junatiladi
 }
 
-const RecordsCard: React.FC<ICardRecordsProp> = ({ label, name, openCard, isOpenCard }) => {
+const RecordsCard: React.FC<ICardRecordsProp> = ({
+    label,
+    name,
+    openCard,
+    isOpenCard,
+    openChildComponent // click bulganda ochilishi kerak bulgan component junatiladi
+}) => {
     return (
         <TouchableWithoutFeedback onPress={openCard}>
             <View style={styles.cardMain}>
@@ -24,19 +30,7 @@ const RecordsCard: React.FC<ICardRecordsProp> = ({ label, name, openCard, isOpen
                         : <Feather name="chevron-right" size={30} color="gray" />
                     }
                 </View>
-                {isOpenCard && (
-                    <MasterCard
-                        alias="dcfvgbn"
-                        clients={5}
-                        imageUrl=""
-                        location="adsfgbfnhg"
-                        name="asefdgrbfgdnfh"
-                        nextAppointment="asedsvgfbd"
-                        orders={4}
-                        rating={5}
-                        key={7}
-                    />
-                )}
+                {isOpenCard && openChildComponent}
             </View>
         </TouchableWithoutFeedback>
     );
