@@ -14,7 +14,7 @@ const NotificationCard: React.FC<INotificationProps> = (props) => {
   return (
     <View
       style={styles.card}
-      className={`bg-[#B9B9C9] p-5 rounded-3xl w-full flex-row items-start justify-start`}
+      className={`bg-[#B9B9C9] p-5 rounded-3xl w-full flex-row items-start justify-start mb-4`}
     >
       <View className='w-[15%]'>
         <View className='w-10 h-10 justify-center items-center rounded-full bg-white'>
@@ -22,12 +22,12 @@ const NotificationCard: React.FC<INotificationProps> = (props) => {
         </View>
       </View>
       <View className='w-[80%]'>
-        <Text className={`text-[20px] font-semibold text-black mt-1 mb-4`}>{title}</Text>
-        <Text className={`text-[17px] text-black opacity-60 mb-3 pr-5`}>
+        <Text className={`text-[20px] font-[900] text-black mt-1 mb-4`}>{title}</Text>
+        <Text className={`text-[17px] text-black font-[600] opacity-50 mb-3 pr-5`}>
           {description.length > 50 ? description.slice(0, 50) + '...' : description}
         </Text>
         <View className={`flex-row justify-between items-center`}>
-          <Text className={`text-[16px] text-black opacity-50`}>{date}</Text>
+          <Text className={`text-[16px] text-black opacity-40`}>{date}</Text>
           <Feather name="chevron-right" size={25} color="gray" />
         </View>
       </View>

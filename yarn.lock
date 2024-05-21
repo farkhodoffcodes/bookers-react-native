@@ -7245,6 +7245,7 @@ react-native-svg@^15.3.0:
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"
+>>>>>>> ff9566fa5da8747413585d934b1f19e932eabc08
 
 react-native-web@~0.19.10:
   version "0.19.11"

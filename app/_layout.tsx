@@ -36,14 +36,16 @@ export default function RootLayout() {
 				<Stack.Screen name="(auth)/secondWelcome" options={{ headerShown: false }} />
 				{/* <Stack.Screen name="(auth)/thirdWelcome" options={{ headerShown: false }} /> */}
 				{/* <Stack.Screen name="(pages)/(auth)" options={{ headerShown: false }} /> */}
-				{/* <Stack.Screen name="(pages)/(notification)" options={{ headerShown: false }} /> */}
+				<Stack.Screen name="(pages)/(notification)/index" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(card_page)/index" options={{ headerShown: false }} />
 				<Stack.Screen name="(_landing)/" options={{ headerShown: false }} />
 				<Stack.Screen name="(_landing)/map" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/auth" options={{ headerShown: false }} />
 				<Stack.Screen name="(sevices)/services" options={{ headerShown: false }} />
 				<Stack.Screen name="(sevices)/idService" options={{ headerShown: false }} />
-				{/* <Stack.Screen name="(auth)/auth" options={{ headerShown: false }} /> */}
+				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/index" options={{ headerShown: false }} />
+				<Stack.Screen name="(auth)/switchPage" options={{ headerShown: false }} />
+				<Stack.Screen name="(auth)/createAccPage" options={{ headerShown: false }} />
 				{/* <Stack.Screen name="(sevices)/services" options={{ headerShown: false }} /> */}
 				{/* <Stack.Screen name="(sevices)/idservice" options={{ headerShown: false }} /> */}
 				<Stack.Screen name="+not-found" />
