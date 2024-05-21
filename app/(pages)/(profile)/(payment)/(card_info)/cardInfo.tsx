@@ -39,6 +39,7 @@ const CardInfo = () => {
           </View>
           <Text  style={tw`mt-2 font-bold`}>
           Побольше?
+          
           </Text> 
           <View style={tw`flex justify-between flex-row w-[100%] mt-3 fw-bold`}>
             <CustomButton title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/>
