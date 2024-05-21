@@ -10,17 +10,17 @@ const SwitchPage = () => {
                 <Image resizeMode='contain' source={require('../../assets/images/logo.png')} />
             </View>
             <View>
-                <Text style={{ fontSize: 20, color: 'white', marginTop: 15 }}>Bookers Beauty</Text>
+                <Text style={{ fontSize: 20, color: 'white', marginTop: 15,marginBottom:8 }}>Bookers Beauty</Text>
             </View>
             <View>
                 <Text style={{ fontSize: 22, color: 'white', marginTop: 60 }}>Кем ты хочешь стать?</Text>
             </View>
             <View style={{ width: '90%' }}>
                 <View style={{marginTop: 10}}>
-                    <ModalButton onPress={() => router.push('/auth')} title='Мастер' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => router.push('/createAccPage')} title='Мастер' textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{marginTop: 10}}>
-                    <ModalButton onPress={() => router.push('/auth')} title="Клиент" textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => router.push('/createAccPage')} title="Клиент" textColor='white' backgroundColor='#9C0A35' />
                 </View>
             </View>
         </SafeAreaView>

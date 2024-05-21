@@ -10,7 +10,7 @@ const Index = () => {
                 <Image resizeMode='contain' source={require('../assets/images/logo.png')} />
             </View>
             <View>
-                <Text style={{ fontSize: 20, color: 'white', marginTop: 15 }}>Bookers Beauty</Text>
+                <Text style={{ fontSize: 20, color: 'white', marginTop: 15 , marginBottom:8 }}>Bookers Beauty</Text>
             </View>
             <View>
                 <Text style={{ fontSize: 21, color: 'white', marginTop: 40 }}>Добро пожаловать!</Text>
