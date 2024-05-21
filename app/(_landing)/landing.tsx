@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import Navbar from "../(navigation)/navbar";
 import MasterCard from "@/components/cards/aboutMaster";
-import tw from "tailwind-react-native-classnames";
 import AppointmentCard from "./AppointmentCard";
+import tw from "tailwind-react-native-classnames";
 
 const filters = [
 	"Все",
@@ -33,12 +33,12 @@ const HomeScreen = () => {
 		setLoading(true);
 		setSelectedFilter(filter);
 
-		// Simulate loading data
 		setTimeout(() => {
 			setLoading(false);
-			// Here you can load your data based on the selected filter
 		}, 1000);
 	};
+
+	function getData(id: string) {}
 
 	const handleFindMastersPress = () => {
 		setShowAppointments(true);
@@ -147,9 +147,7 @@ const HomeScreen = () => {
 						<ActivityIndicator size="large" color="#9c0135" />
 					</View>
 				) : (
-					<View style={styles.masterCardsContainer}>
-						<ScrollView>{renderMasterCards(selectedFilter)}</ScrollView>
-					</View>
+					<View style={styles.masterCardsContainer}>{renderMasterCards(selectedFilter)}</View>
 				)}
 			</ScrollView>
 		</View>

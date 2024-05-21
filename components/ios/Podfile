@@ -1,0 +1,23 @@
+platform :ios, '10.0'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+target 'YourProjectName' do
+  config = use_native_modules!
+
+  # Google Maps SDK dan foydalanish uchun
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
+
+  use_frameworks! :linkage => :static
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  # Flipperni yoqish
+  #
+  # Agar use_frameworks! yoqilgan bo'lsa, Flipper ishlamaydi va
+  # quyidagi qatorlarni o'chirib qo'yishingiz kerak.
+  use_flipper!
+  post_install do |installer|
+    react_native_post_install(installer)
+  end
+end
