@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
-import {View, Text, Pressable, StyleSheet, Dimensions} from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import Modal from 'react-native-modal';
-import CustomButton from "@/components/(buttons)";
+import ModalButton from "@/components/(buttons)/modal-btn";
 
-const {width, height} = Dimensions.get('window')
+const { width, height } = Dimensions.get('window')
 
 interface ModalProps {
-    children: JSX.Element;
-    btnWhite: string;
-    btnRed: string;
-    isFullBtn: boolean;
-    isModal: boolean
-    toggleModal: () => void
+    children: JSX.Element; //modal body qismi
+    btnWhite: string; // oq btn uchun text
+    btnRed: string; // qizil btn uchun text
+    isFullBtn: boolean; // btn lar row yoki col joylashishi uchun trueOrfalse
+    isModal: boolean // modal ochish uchin state uzgaruvchi
+    toggleModal: () => void // modalni ochib yopish uchun function m: => const toggleModal = () => setIsModal(!isModal);
 }
 
 const CenteredModal: React.FC<ModalProps> = (props) => {
@@ -31,8 +31,6 @@ const CenteredModal: React.FC<ModalProps> = (props) => {
                 animationIn="slideInUp"
                 animationOut="slideOutDown"
                 backdropColor="black"
-                backdropTransitionInTiming={300}
-                backdropTransitionOutTiming={300}
                 coverScreen={true}
                 deviceHeight={height}
                 deviceWidth={width}
@@ -43,19 +41,21 @@ const CenteredModal: React.FC<ModalProps> = (props) => {
                 useNativeDriver={true}>
                 <View style={styles.modalView}>
                     {children}
-                    <View className={`${isFullBtn ? 'flex-row' : 'flex-col'} w-full`}>
+                    <View className={`${isFullBtn ? 'flex-row' : 'flex-col'} w-full mt-10`}>
                         <View className={isFullBtn ? 'w-[48%]' : 'my-2'}>
-                            <CustomButton
+                            <ModalButton
                                 backgroundColor={'white'}
-                                title={`Yes`}
+                                title={btnWhite}
                                 textColor={'#9C0A35'}
+                                onPress={toggleModal} // vazifa bajarilishiga qarab click uchun props
                             />
                         </View>
                         <View className={isFullBtn ? 'w-[48%] mx-3' : 'my-2'}>
-                            <CustomButton
+                            <ModalButton
                                 backgroundColor={'#9C0A35'}
-                                title={`Yes`}
+                                title={btnRed}
                                 textColor={'white'}
+                                onPress={toggleModal} // vazifa bajarilishiga qarab click uchun props
                             />
                         </View>
                     </View>
