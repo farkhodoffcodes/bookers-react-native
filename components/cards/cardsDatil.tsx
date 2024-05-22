@@ -42,7 +42,7 @@ const CardsDatail: React.FC<MasterCardProps> = ({
 
     return (
         <View style={tw`bg-red`}>
-            <View style={tw`bg-gray-300 rounded-xl p-7 my-4 shadow-md`}>
+            <View className="bg-[#B9B9C9] rounded-xl p-7 my-4 shadow-md">
                 <View style={tw`flex-row items-center mb-5`}>
                     <Image source={{ uri: imageUrl }} style={tw`w-12 h-12 rounded-full mr-2`} />
                     <View style={tw`flex`}>
