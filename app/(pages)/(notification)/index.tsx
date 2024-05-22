@@ -76,7 +76,6 @@ export default function Notifaction() {
 
     const toggleModal = () => setIsModal(!isModal)
     const toggleBottomModal = () => setIsBottomModal(!isBottomModal)
-    console.log(notificationCardData);
 
     return (
         <View className="bg-[#1E1E1E] flex-1 px-3">
