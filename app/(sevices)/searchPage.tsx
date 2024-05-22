@@ -3,7 +3,12 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./../(navigation)/navbar";
 import tw from "tailwind-react-native-classnames";
 import Checkbox from "expo-checkbox";
+import Slider from "@react-native-community/slider";
+import { RadioButton } from "react-native-paper";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import MasterCard from "@/components/cards/aboutMaster";
+import  Collapsible  from 'react-native-collapsible';
+import { AntDesign } from "@expo/vector-icons";
 
 // MasterCard uchun rekvizitlarni aniqlaymiz
 const masterData = [
@@ -63,6 +68,54 @@ const SearchPage = () => {
 	const [isChecked, setChecked] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [filterVisible, setFilterVisible] = useState(false);
+	const [collapsedGender, setCollapsedGender] = useState<boolean>(true);
+	const [collapsedNearby, setCollapsedNearby] = useState<boolean>(true);
+	const [collapsedPrice, setCollapsedPrice] = useState<boolean>(true);
+	const [collapsedRating, setCollapsedRating] = useState<boolean>(true);
+	const [collapsedCalendar, setCollapsedCalendar] = useState<boolean>(true);
+	const [checked, setCheckedRadio] = useState<string>("male");
+	const [sliderValue, setSliderValue] = useState<number>(1.5);
+	const [priceValue, setPriceValue] = useState<number>(100);
+	const [ratingValue, setRatingValue] = useState<number>(3);
+	const [isCheckedNearby, setCheckedNearby] = useState<boolean>(false);
+	const [isCheckedPriceNotImportant, setCheckedPriceNotImportant] = useState<boolean>(false);
+	const [isCheckedCalendarNotImportant, setCheckedCalendarNotImportant] = useState<boolean>(false);
+	const [isCheckedRatingNotImportant, setCheckedRatingNotImportant] = useState<boolean>(false);
+	const [isDatePickerVisible, setDatePickerVisibility] = useState<boolean>(false);
+	const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+	const toggleCollapsedGender = () => {
+		setCollapsedGender(!collapsedGender);
+	};
+
+	const toggleCollapsedNearby = () => {
+		setCollapsedNearby(!collapsedNearby);
+	};
+
+	const toggleCollapsedPrice = () => {
+		setCollapsedPrice(!collapsedPrice);
+	};
+
+	const toggleCollapsedRating = () => {
+		setCollapsedRating(!collapsedRating);
+	};
+
+	const toggleCollapsedCalendar = () => {
+		setCollapsedCalendar(!collapsedCalendar);
+	};
+
+	const showDatePicker = () => {
+		setDatePickerVisibility(true);
+	};
+
+	const hideDatePicker = () => {
+		setDatePickerVisibility(false);
+	};
+
+	const handleConfirm = (date: Date) => {
+		setSelectedDate(date);
+		hideDatePicker();
+	};
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -125,23 +178,197 @@ const SearchPage = () => {
 					<View style={tw`flex-1 justify-end`}>
 						<View style={tw`bg-gray-800 p-5 rounded-t-lg`}>
 							<Text style={tw`text-white text-xl font-bold mb-5`}>Фильтр</Text>
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`}>
+							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedGender}>
 								<Text style={tw`text-white text-lg`}>Пол мастера</Text>
+								{collapsedGender ? (
+									<AntDesign name="right" size={24} color="white" />
+								) : (
+									<AntDesign name="down" size={24} color="white" />
+								)}
 							</TouchableOpacity>
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`}>
+							<Collapsible collapsed={collapsedGender} align="center">
+								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+									<View style={tw`flex-row items-center mb-3`}>
+										<RadioButton
+											value="male"
+											status={checked === "male" ? "checked" : "unchecked"}
+											onPress={() => setCheckedRadio("male")}
+											color="#800000"
+										/>
+										<Text style={tw`text-white text-lg`}>Мужчины</Text>
+									</View>
+									<View style={tw`flex-row items-center mb-3`}>
+										<RadioButton
+											value="female"
+											status={checked === "female" ? "checked" : "unchecked"}
+											onPress={() => setCheckedRadio("female")}
+											color="#800000"
+										/>
+										<Text style={tw`text-white text-lg`}>Женщины</Text>
+									</View>
+									<View style={tw`flex-row items-center`}>
+										<Checkbox
+											// value={isCheckedNotImportant}
+											// onValueChange={setCheckedNotImportant}
+											color={"#800000 "}
+											style={tw`mr-2`}
+										/>
+										<Text style={tw`text-lg text-white`}>не важно</Text>
+									</View>
+								</View>
+							</Collapsible>
+
+							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedNearby}>
 								<Text style={tw`text-white text-lg`}>Рядом со мной</Text>
+								{collapsedNearby ? (
+									<AntDesign name="right" size={24} color="white" />
+								) : (
+									<AntDesign name="down" size={24} color="white" />
+								)}
 							</TouchableOpacity>
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`}>
+							<Collapsible collapsed={collapsedNearby} align="center">
+								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+									<View style={tw`mb-5`}>
+										<Text style={tw`text-lg text-red-800 mb-2`}>{sliderValue} км</Text>
+										<Slider
+											style={tw`w-full h-10`}
+											minimumValue={0}
+											maximumValue={10}
+											step={0.5}
+											value={sliderValue}
+											onValueChange={(value) => setSliderValue(value)}
+											minimumTrackTintColor="#800000"
+											maximumTrackTintColor="#000000"
+											thumbTintColor="#800000"
+											disabled={isCheckedNearby}
+										/>
+									</View>
+									<View style={tw`flex-row items-center`}>
+										<Checkbox
+											style={tw`mr-2`}
+											value={isCheckedNearby}
+											onValueChange={setCheckedNearby}
+											color={isCheckedNearby ? "#800000" : undefined}
+										/>
+										<Text style={tw`text-lg text-white`}>не важно</Text>
+									</View>
+								</View>
+							</Collapsible>
+
+							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedPrice}>
 								<Text style={tw`text-white text-lg`}>Цена не более</Text>
+								{collapsedPrice ? (
+									<AntDesign name="right" size={24} color="white" />
+								) : (
+									<AntDesign name="down" size={24} color="white" />
+								)}
 							</TouchableOpacity>
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`}>
+							<Collapsible collapsed={collapsedPrice} align="center">
+								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+									<View style={tw`mb-5`}>
+										<Text style={tw`text-lg text-red-800 mb-2`}>{priceValue} $</Text>
+										<Slider
+											style={tw`w-full h-10`}
+											minimumValue={0}
+											maximumValue={500}
+											step={10}
+											value={priceValue}
+											onValueChange={(value) => setPriceValue(value)}
+											minimumTrackTintColor="#800000"
+											maximumTrackTintColor="#000000"
+											thumbTintColor="#800000"
+											disabled={isCheckedPriceNotImportant}
+										/>
+									</View>
+									<View style={tw`flex-row items-center`}>
+										<Checkbox
+											style={tw`mr-2`}
+											value={isCheckedPriceNotImportant}
+											onValueChange={setCheckedPriceNotImportant}
+											color={isCheckedPriceNotImportant ? "#800000" : undefined}
+										/>
+										<Text style={tw`text-lg text-white`}>не важно</Text>
+									</View>
+								</View>
+							</Collapsible>
+
+							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedRating}>
 								<Text style={tw`text-white text-lg`}>Рейтинг</Text>
+								{collapsedRating ? (
+									<AntDesign name="right" size={24} color="white" />
+								) : (
+									<AntDesign name="down" size={24} color="white" />
+								)}
 							</TouchableOpacity>
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-5`}>
+							<Collapsible collapsed={collapsedRating} align="center">
+								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+									<View style={tw`mb-5`}>
+										<Text style={tw`text-lg text-red-800 mb-2`}>{ratingValue}+</Text>
+										<Slider
+											style={tw`w-full h-10`}
+											minimumValue={0}
+											maximumValue={5}
+											step={1}
+											value={ratingValue}
+											onValueChange={(value) => setRatingValue(value)}
+											minimumTrackTintColor="#800000"
+											maximumTrackTintColor="#000000"
+											thumbTintColor="#800000"
+											disabled={isCheckedRatingNotImportant}
+										/>
+									</View>
+									<View style={tw`flex-row items-center`}>
+										<Checkbox
+											style={tw`mr-2`}
+											value={isCheckedRatingNotImportant}
+											onValueChange={setCheckedRatingNotImportant}
+											color={isCheckedRatingNotImportant ? "#800000" : undefined}
+										/>
+										<Text style={tw`text-lg text-white`}>не важно</Text>
+									</View>
+								</View>
+							</Collapsible>
+
+							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedCalendar}>
 								<Text style={tw`text-white text-lg`}>Дата записи</Text>
+								{collapsedCalendar ? (
+									<AntDesign name="right" size={24} color="white" />
+								) : (
+									<AntDesign name="down" size={24} color="white" />
+								)}
 							</TouchableOpacity>
-							<TouchableOpacity style={tw`bg-red-800 p-3 rounded-lg`} onPress={() => setFilterVisible(false)}>
-								<Text style={tw`text-white text-lg text-center`}>Сохранить</Text>
+							<Collapsible collapsed={collapsedCalendar} align="center">
+								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+									<TouchableOpacity
+										onPress={showDatePicker}
+										style={tw`bg-white p-4 rounded-lg`}
+										disabled={isCheckedCalendarNotImportant}
+									>
+										<Text style={tw`text-lg text-black`}>
+											{selectedDate ? selectedDate.toLocaleDateString() : "Выберите дату"}
+										</Text>
+									</TouchableOpacity>
+									<View style={tw`flex-row items-center mt-2`}>
+										<Checkbox
+											style={tw`mr-2`}
+											value={isCheckedCalendarNotImportant}
+											onValueChange={setCheckedCalendarNotImportant}
+											color={isCheckedCalendarNotImportant ? "#800000" : undefined}
+										/>
+										<Text style={tw`text-lg text-white`}>не важно</Text>
+									</View>
+								</View>
+							</Collapsible>
+
+							<DateTimePickerModal
+								isVisible={isDatePickerVisible}
+								mode="date"
+								onConfirm={handleConfirm}
+								onCancel={hideDatePicker}
+							/>
+
+							<TouchableOpacity style={tw`bg-red-800 p-4 rounded-lg items-center`} onPress={() => setFilterVisible(false)}>
+								<Text style={tw`text-white text-lg`}>Сохранить</Text>
 							</TouchableOpacity>
 						</View>
 					</View>
