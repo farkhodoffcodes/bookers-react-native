@@ -3,6 +3,9 @@ import { View, TextInput, Text, StyleSheet } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import ModalButton from "@/components/(buttons)/modal-btn";
+import { SafeAreaView } from "react-native-safe-area-context";
+import NotificationNav from "@/components/navigation/notification_nav";
+import { useNavigation } from "expo-router";
 
 const cardNumberRegExp = /^[0-9]{16}$/;
 const expirationDateRegExp = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
@@ -16,6 +19,7 @@ const validationSchema = Yup.object().shape({
     .required("Karta sanasi kerak."),
 });
 
+const navigation = useNavigation();
 const CreateCard = () => (
   <Formik
     initialValues={{ cardNumber: "", expirationDate: "" }}
@@ -24,6 +28,14 @@ const CreateCard = () => (
   >
     {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
       <View style={styles.container}>
+        
+      <SafeAreaView>
+        <NotificationNav
+          deleteIcon={false}
+          name="Способы оплаты"
+          backIcon={() => navigation.goBack()}
+        />
+      </SafeAreaView>
         <View style={styles.container}>
           <Text className="text-white mb-5 text-lg">Введите данные карты</Text>
           <TextInput
