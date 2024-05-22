@@ -1,5 +1,5 @@
 export default function ChatDetails() {
     return (
-        <text>Master</text>
+        <text>Master</text> 
     )
 }
