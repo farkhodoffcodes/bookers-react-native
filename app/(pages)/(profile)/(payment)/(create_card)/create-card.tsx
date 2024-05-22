@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const CreateCard: React.FC = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useNavigation();
 
   return (
     <Formik
@@ -82,9 +82,12 @@ const CreateCard: React.FC = () => {
             <Text style={styles.errorText}>{errors.expirationDate}</Text>
           )}
 
-          <TouchableOpacity onPress={handleSubmit as any} style={styles.submitButton}>
-            <Text style={styles.submitButtonText}>Yuborish</Text>
-          </TouchableOpacity>
+          <Text
+            onPress={handleSubmit as any}
+            style={styles.submitButton}
+          >
+            Yuborish
+          </Text>
         </View>
       )}
     </Formik>

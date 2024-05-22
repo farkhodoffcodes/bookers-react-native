@@ -80,7 +80,7 @@ const PersonalData: React.FC = () => {
             </SafeAreaView>
             <ScrollView
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ marginVertical: 15, paddingBottom: 70, alignItems: 'center' }}
+                contentContainerStyle={{ paddingBottom: 70, alignItems: 'center' }}
             >
                 <TouchableOpacity style={styles.imageContainer} onPress={pickImage}>
                     {image ? (
@@ -89,7 +89,7 @@ const PersonalData: React.FC = () => {
                         <Text style={styles.imagePlaceholder}>Rasm yuklash</Text>
                     )}
                 </TouchableOpacity>
-                <View className='rounded-3xl overflow-hidden'>
+                <View className='rounded-3xl overflow-hidden mt-5'>
                     {profileData.length > 0 && profileData.map(item => (
                         <ProfilePersonalCard
                             key={item.id}
@@ -114,13 +114,13 @@ const PersonalData: React.FC = () => {
 
 const styles = StyleSheet.create({
     imageContainer: {
-        width: 120,
-        height: 120,
-        borderRadius: 60,
+        width: 130,
+        height: 130,
+        borderRadius: 100,
         backgroundColor: '#d3d3d3',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20,
+        marginVertical: 25,
         overflow: 'hidden',
     },
     profileImage: {
