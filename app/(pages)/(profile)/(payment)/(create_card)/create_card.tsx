@@ -34,7 +34,7 @@ const CreateCard = () => (
                 : null,
             ]}
 
-            placeholder="Karta raqami (16 ta raqam)"
+            placeholder="Karta raqami (16 ta raqam) "
             placeholderTextColor="#828282"
             keyboardType="numeric"
             maxLength={16}
@@ -42,7 +42,7 @@ const CreateCard = () => (
             onBlur={handleBlur("cardNumber")}
             value={values.cardNumber}
           />
-          
+
           {touched.cardNumber && errors.cardNumber && (
             <Text style={styles.errorText}>{errors.cardNumber}</Text>
           )}
