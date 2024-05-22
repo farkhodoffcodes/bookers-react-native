@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         width: "100%",
         alignItems: "center",
-        padding: 10,
+        padding: 20,
         marginBottom: 10,
     },
     imageContainer: {

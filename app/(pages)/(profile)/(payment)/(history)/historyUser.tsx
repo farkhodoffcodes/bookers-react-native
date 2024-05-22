@@ -13,7 +13,8 @@ import HistoryCard from '@/components/cards/historyCard';
 import HistoryTime from './historyTime';
 import CustomButton from '@/components/(buttons)';
 import Contact from '@/components/cards/contact';
-import { router } from 'expo-router';
+import { router, useNavigation } from 'expo-router';
+import NotificationNav from '@/components/navigation/notification_nav';
 
 const HistoryUser = () => {
   const Repet = () =>{
@@ -22,8 +23,11 @@ const HistoryUser = () => {
   const Click = () =>{
     router.push('')
   }
+  const navigation = useNavigation()
   return (
-    <SafeAreaView style={styles.container}>
+    
+    <SafeAreaView className='mt-10' >
+    <NotificationNav name='Натали' backIcon={() => navigation.goBack()} deleteIcon={false} />
     
     <ScrollView style={tw`bg-gray-900 w-full max-h-screen p-3 `}>
       <View style={tw` `}>
@@ -48,14 +52,14 @@ const HistoryUser = () => {
      <View className='bg-[#B9B9C9] w-full max-h-screen rounded-xl mb-10'>
        <Text className='text-xl text-center text-[#9C0A35] p-5 '>Вам снова нужна эта услуга?</Text>
        <Text className='text-center p-2 mb-8'>Если вы хотите воспользоваться этой услугой еще раз, нажмите кнопку «Повторить», либо «Записаться» если вам нужны другие услуги мастера.</Text>
-       <View className='flex flex-row flex-wrap gap-2 mb-5 w-full justify-evenly'>
+       <View className='flex flex-row flex-wrap gap-2 mb-5 w-full justify-evenly mb-20'>
          <CustomButton title='Повторить' backgroundColor='#B9B9C9' textColor='#9C0A35' onPress={Repet} borderColor='#9C0A35'/>
          <CustomButton title='Записаться' backgroundColor='#9C0A35' textColor='#FFFFFF' onPress={Click} borderColor=''/>
        </View>
      </View>
      </View>
     </ScrollView>
-  </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
