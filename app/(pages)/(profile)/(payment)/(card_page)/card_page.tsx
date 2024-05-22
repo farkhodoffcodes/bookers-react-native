@@ -15,7 +15,7 @@ export default function CardPage() {
       <SafeAreaView>
         <NotificationNav
           deleteIcon={false}
-          name="salom"
+          name="Способы оплаты"
           backIcon={() => navigation.goBack()}
         />
       </SafeAreaView>
