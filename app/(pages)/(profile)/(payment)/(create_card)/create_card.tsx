@@ -28,14 +28,13 @@ const CreateCard = () => (
   >
     {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
       <View style={styles.container}>
-        
-      <SafeAreaView>
-        <NotificationNav
-          deleteIcon={false}
-          name="Способы оплаты"
-          backIcon={() => navigation.goBack()}
-        />
-      </SafeAreaView>
+        <SafeAreaView>
+          <NotificationNav
+            deleteIcon={false}
+            name="Способы оплаты"
+            backIcon={() => navigation.goBack()}
+          />
+        </SafeAreaView>
         <View style={styles.container}>
           <Text className="text-white mb-5 text-lg">Введите данные карты</Text>
           <TextInput
@@ -45,7 +44,6 @@ const CreateCard = () => (
                 ? styles.errorInput
                 : null,
             ]}
-
             placeholder="Karta raqami (16 ta raqam) "
             placeholderTextColor="#828282"
             keyboardType="numeric"
@@ -79,7 +77,12 @@ const CreateCard = () => (
           )}
         </View>
 
-        <ModalButton title="Yuborish" backgroundColor="#828282" textColor="#fff"  onPress={() => handleSubmit()} />
+        <ModalButton
+          title="Yuborish"
+          backgroundColor="#828282"
+          textColor="#fff"
+          onPress={() => handleSubmit()}
+        />
       </View>
     )}
   </Formik>
@@ -90,9 +93,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: "center",
-
   },
-  
+
   input: {
     borderWidth: 1,
     borderRadius: 10,
