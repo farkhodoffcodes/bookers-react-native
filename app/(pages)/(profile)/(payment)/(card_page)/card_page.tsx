@@ -31,7 +31,9 @@ export default function CardPage() {
         </ScrollView>
       ) : (
         <View style={styles.container}>
-          <AntDesign name="creditcard" size={100} color="white" />
+          <View>
+            <AntDesign name="creditcard" size={100} color="white" />
+          </View>
           <Text className="text-white">Вы не добавили платежную карту</Text>
           <Text className="text-white">
             Добавьте карту, чтобы быстро и легко совершать платежи через
