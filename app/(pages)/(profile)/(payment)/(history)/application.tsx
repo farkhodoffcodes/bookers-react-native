@@ -37,9 +37,9 @@ const Application = () => {
                 Но Вы можете оставить заявку в зал ожидания
                 </Text>
             </View>
-            <View className='flex flex-row justify-center p-3 mb-10'>
-            <FontAwesome name="calendar" size={70} color="gray" />
-            <Text className='text-white text-lg '>Если время Вашего мастера освободиться, то Ваш зарос может быть принят на этот день!</Text>
+            <View className='flex flex-row justify-center p-8 mb-10'>
+            <FontAwesome name="calendar" size={70} color="gray"/>
+            <Text className='text-white text-lg  ml-3'>Если время Вашего мастера освободиться, то Ваш зарос может быть принят на этот день!</Text>
             </View>
             <View className='mb-10'>
                 <CustomButton title='Оставить заявку' backgroundColor='#9C0A35' textColor='#FFFFFF' borderColor='' onPress={Page}/>

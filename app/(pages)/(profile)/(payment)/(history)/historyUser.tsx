@@ -26,11 +26,10 @@ const HistoryUser = () => {
   const navigation = useNavigation()
   return (
     
-    <SafeAreaView className='mt-10' >
-    <NotificationNav name='Натали' backIcon={() => navigation.goBack()} deleteIcon={false} />
-    
+    <SafeAreaView className='mt-10 bg-black' >
+      <NotificationNav name='Натали' backIcon={() => navigation.goBack()} deleteIcon={false} />
     <ScrollView style={tw`bg-gray-900 w-full max-h-screen p-3 `}>
-      <View style={tw` `}>
+      <View className='mb-20'>
         <CardsDatail name='Натали' alias='Beauty Wave' master='Женский мастер' location='Мирабадский р-н, ул. Нурафшон, 32' imageUrl='' orders={20} orderZakaz='заказа ,'orderKlent='клинетов' clients={12} rating={5}/>
       <View>
       <HistoryCard name='Четверг, 12 января' description='Длительность - 1 час' price='12:30 - 14:00' btnOrText/>
@@ -52,7 +51,7 @@ const HistoryUser = () => {
      <View className='bg-[#B9B9C9] w-full max-h-screen rounded-xl mb-10'>
        <Text className='text-xl text-center text-[#9C0A35] p-5 '>Вам снова нужна эта услуга?</Text>
        <Text className='text-center p-2 mb-8'>Если вы хотите воспользоваться этой услугой еще раз, нажмите кнопку «Повторить», либо «Записаться» если вам нужны другие услуги мастера.</Text>
-       <View className='flex flex-row flex-wrap gap-2 mb-5 w-full justify-evenly mb-20'>
+       <View className='flex flex-row flex-wrap gap-2 w-full justify-evenly mb-7'>
          <CustomButton title='Повторить' backgroundColor='#B9B9C9' textColor='#9C0A35' onPress={Repet} borderColor='#9C0A35'/>
          <CustomButton title='Записаться' backgroundColor='#9C0A35' textColor='#FFFFFF' onPress={Click} borderColor=''/>
        </View>
