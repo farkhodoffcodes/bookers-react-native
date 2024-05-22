@@ -27,9 +27,7 @@ const MasterCard: React.FC<MasterCardProps> = ({
 		const stars = [];
 		for (let i = 0; i < 5; i++) {
 			stars.push(
-				<View key={i} style={{ flexDirection: "row" }}>
-					<Text style={i < rating ? styles.starFilled : styles.starEmpty}>★</Text>
-				</View>
+				<Text key={i} style={i < rating ? styles.starFilled : styles.starEmpty}>★</Text>
 			);
 		}
 		return stars;
@@ -47,7 +45,7 @@ const MasterCard: React.FC<MasterCardProps> = ({
 					<Text style={styles.masterType}>Женский мастер</Text>
 				</View>
 				<View style={styles.ratingContainer}>
-					{renderStars()}
+					<View style={{ flexDirection: "row" }}>{renderStars()}</View>
 					<Text style={styles.orderInfo}>
 						{orders} заказа, {clients} клиентов
 					</Text>
