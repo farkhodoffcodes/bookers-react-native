@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TextInput, Text, StyleSheet } from "react-native";
+import { View, TextInput, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import TextInputMask from "react-native-text-input-mask";
@@ -82,12 +82,9 @@ const CreateCard: React.FC = () => {
             <Text style={styles.errorText}>{errors.expirationDate}</Text>
           )}
 
-          <Text
-            onPress={handleSubmit as any}
-            style={styles.submitButton}
-          >
-            Yuborish
-          </Text>
+          <TouchableOpacity onPress={handleSubmit as any} style={styles.submitButton}>
+            <Text style={styles.submitButtonText}>Yuborish</Text>
+          </TouchableOpacity>
         </View>
       )}
     </Formik>
@@ -113,10 +110,13 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     backgroundColor: "#007bff",
-    color: "#fff",
     padding: 10,
-    textAlign: "center",
     borderRadius: 5,
+    alignItems: "center",
+  },
+  submitButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
 
