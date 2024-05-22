@@ -16,38 +16,38 @@ const services = [
 	{
 		id: 2,
 		imageUrl: "https://fakeimg.pl/350x200/ff0000,128/000,255",
-		title: "Здоровье и красота волос",
-		subtitle: "Рядом с тобой 450",
+		title: "Ногтевой сервис",
+		subtitle: "Рядом с тобой 75",
 		onPress: () => router.push("/idService"),
 	},
 	{
 		id: 3,
 		imageUrl: "https://fakeimg.pl/350x200/ff0000,128/000,255",
-		title: "Здоровье и красота волос",
-		subtitle: "Рядом с тобой 450",
+		title: "Ресницы и брови",
+		subtitle: "Рядом с тобой 322",
 		onPress: () => router.push("/idService"),
 	},
 	{
 		id: 4,
 		imageUrl: "https://fakeimg.pl/350x200/ff0000,128/000,255",
-		title: "Здоровье и красота волос",
-		subtitle: "Рядом с тобой 450",
+		title: "Уход за телом",
+		subtitle: "Рядом с тобой 456",
 		onPress: () => router.push("/idService"),
 	},
 	{
 		id: 5,
 		imageUrl: "https://fakeimg.pl/350x200/ff0000,128/000,255",
-		title: "Здоровье и красота волос",
-		subtitle: "Рядом с тобой 450",
+		title: "Уход за лицом",
+		subtitle: "Рядом с тобой 210",
 		onPress: () => router.push("/idService"),
 	},
 ];
 
 const Services = () => {
 	return (
-		<View style={tw`flex-1 items-center bg-gray-900 w-[100%]`}>
+		<View style={tw`flex-1 items-center bg-gray-900 w-full py-5`}>
 			<Navbar name="Services" centerName={false} icons={true} back={false} />
-			<ScrollView contentContainerStyle={{ width: "100%", alignItems: "center" }}>
+			<ScrollView contentContainerStyle={{ width: "90%", marginTop: 10, alignItems: "center" }}>
 				{services.map((service) => (
 					<ServiceCard
 						key={service.id}

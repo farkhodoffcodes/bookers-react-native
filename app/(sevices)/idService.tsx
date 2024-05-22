@@ -48,9 +48,8 @@ const MasterButton: React.FC = () => {
 	};
 
 	return (
-		<View style={tw`bg-gray-900`}>
-			<Navbar name="Здоровье и красота " centerName={true} back={true} icons={false} />
-			{/* <Navbar name=""back={true} icons={false} centerName={false}/> */}
+		<View style={tw`bg-gray-900 py-5`} >
+			<Navbar name="Здоровье и красота волос " centerName={true} back={true} icons={false} />
 			<TouchableOpacity style={styles.button} onPress={toggleCollapsed}>
 				<Text style={styles.buttonText}>Пол мастера</Text>
 				{collapsed ? (
