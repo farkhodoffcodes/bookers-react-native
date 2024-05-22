@@ -27,12 +27,14 @@ const CreateCard = () => (
         <View style={styles.container}>
           <Text className="text-white mb-5 text-lg">Введите данные карты</Text>
           <TextInput
+          
             style={[
               styles.input,
               touched.cardNumber && errors.cardNumber
                 ? styles.errorInput
                 : null,
             ]}
+
             placeholder="Karta raqami (16 ta raqam)"
             placeholderTextColor="#828282"
             keyboardType="numeric"
