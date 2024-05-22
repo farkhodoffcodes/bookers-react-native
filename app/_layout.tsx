@@ -43,9 +43,17 @@ export default function RootLayout() {
 				<Stack.Screen name="(auth)/auth" options={{ headerShown: false }} />
 				<Stack.Screen name="(sevices)/services" options={{ headerShown: false }} />
 				<Stack.Screen name="(sevices)/idService" options={{ headerShown: false }} />
-				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/index" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/historyUser" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/repet" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/application" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/historyTime" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/serviceHistory" options={{ headerShown: false }} />
+				{/* <Stack.Screen name="(auth)/auth" options={{ headerShown: false }} /> */}
+
+
 				<Stack.Screen name="(auth)/switchPage" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/createAccPage" options={{ headerShown: false }} />
+
 				{/* <Stack.Screen name="(sevices)/services" options={{ headerShown: false }} /> */}
 				{/* <Stack.Screen name="(sevices)/idservice" options={{ headerShown: false }} /> */}
 				<Stack.Screen name="+not-found" />

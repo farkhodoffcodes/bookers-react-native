@@ -7,17 +7,18 @@ type Props = {
   title: string;
   backgroundColor: string;
   textColor: string;
- 
+  borderColor?: string; // Optional borderColor prop
+  onPress: () => void;
 };
 
-const CustomButton: React.FC<Props> = ({ title, backgroundColor, textColor}) => {
+const CustomButton: React.FC<Props> = ({ title, backgroundColor, textColor, borderColor, onPress }) => {
   return (
     <TouchableOpacity
       style={[
         tw`w-[100%] px-9 py-4 rounded-xl`,
-        { backgroundColor: backgroundColor,   }
+        { backgroundColor, borderColor, borderWidth: borderColor ? 1 : 0 }
       ]}
-   
+      onPress={onPress}
     >
       <Text style={[{ color: textColor, textAlign: 'center' }]}>
         {title}
