@@ -90,8 +90,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: "center",
-    
+
   },
+  
   input: {
     borderWidth: 1,
     borderRadius: 10,
@@ -101,13 +102,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: "#4B4B64",
   },
+
   errorInput: {
     borderColor: "red",
   },
+
   errorText: {
     color: "red",
     marginBottom: 10,
   },
+
   submitButton: {
     backgroundColor: "#007bff",
     color: "#fff",
