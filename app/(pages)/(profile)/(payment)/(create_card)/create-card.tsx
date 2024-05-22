@@ -1,98 +1,65 @@
-import React from "react";
-import { View, TextInput, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import TextInputMask from "react-native-text-input-mask";
-import { SafeAreaView } from "react-native-safe-area-context";
-import NotificationNav from "@/components/navigation/notification_nav";
-import { useNavigation } from "expo-router";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import React from 'react';
+import { View, TextInput, Text, StyleSheet } from 'react-native';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
-const cardNumberRegExp = /^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$/;
+const cardNumberRegExp = /^[0-9]{16}$/;
 const expirationDateRegExp = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
 
 const validationSchema = Yup.object().shape({
   cardNumber: Yup.string()
-    .matches(cardNumberRegExp, "Karta raqami xato. 16 ta raqam kiriting.")
-    .required("Karta raqami kerak."),
+    .matches(cardNumberRegExp, 'Karta raqami xato. 16 ta raqam kiriting.')
+    .required('Karta raqami kerak.'),
   expirationDate: Yup.string()
-    .matches(expirationDateRegExp, "Sana formati MM/YY bo'lishi kerak.")
-    .required("Karta sanasi kerak."),
+    .matches(expirationDateRegExp, 'Sana formati MM/YY bo\'lishi kerak.')
+    .required('Karta sanasi kerak.'),
 });
 
-const CreateCard: React.FC = () => {
-  const navigation = useNavigation();
+const CreateCard = () => (
+  <Formik
+    initialValues={{ cardNumber: '', expirationDate: '' }}
+    validationSchema={validationSchema}
+    onSubmit={values => console.log(values)}
+  >
+    {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+      <View style={styles.container}>
+        <TextInput
+          style={[
+            styles.input,
+            touched.cardNumber && errors.cardNumber ? styles.errorInput : null,
+          ]}
+          placeholder="Karta raqami (16 ta raqam)"
+          keyboardType="numeric"
+          maxLength={16}
+          onChangeText={handleChange('cardNumber')}
+          onBlur={handleBlur('cardNumber')}
+          value={values.cardNumber}
+        />
+        {touched.cardNumber && errors.cardNumber && (
+          <Text style={styles.errorText}>{errors.cardNumber}</Text>
+        )}
 
-  return (
-    <Formik
-      initialValues={{ cardNumber: "", expirationDate: "" }}
-      validationSchema={validationSchema}
-      onSubmit={(values) => console.log(values)}
-    >
-      {({
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        values,
-        errors,
-        touched,
-        setFieldValue,
-      }) => (
-        <View style={styles.container}>
-          <SafeAreaView>
-            <NotificationNav
-              deleteIcon={false}
-              name="salom"
-              backIcon={() => navigation.goBack()}
-            />
-          </SafeAreaView>
-          <TextInputMask
-            style={[
-              styles.input,
-              touched.cardNumber && errors.cardNumber ? styles.errorInput : null,
-            ]}
-            placeholder="Karta raqami (16 ta raqam)"
-            keyboardType="numeric"
-            onChangeText={(formatted, extracted) => {
-              setFieldValue("cardNumber", extracted);
-            }}
-            onBlur={handleBlur("cardNumber")}
-            value={values.cardNumber}
-            mask="[0000] [0000] [0000] [0000]"
-          />
-          {touched.cardNumber && errors.cardNumber && (
-            <Text style={styles.errorText}>{errors.cardNumber}</Text>
-          )}
+        <TextInput
+          style={[
+            styles.input,
+            touched.expirationDate && errors.expirationDate ? styles.errorInput : null,
+          ]}
+          placeholder="MM/YY"
+          keyboardType="numeric"
+          maxLength={5}
+          onChangeText={handleChange('expirationDate')}
+          onBlur={handleBlur('expirationDate')}
+          value={values.expirationDate}
+        />
+        {touched.expirationDate && errors.expirationDate && (
+          <Text style={styles.errorText}>{errors.expirationDate}</Text>
+        )}
 
-          <TextInput
-            style={[
-              styles.input,
-              touched.expirationDate && errors.expirationDate
-                ? styles.errorInput
-                : null,
-            ]}
-            placeholder="MM/YY"
-            keyboardType="numeric"
-            maxLength={5}
-            onChangeText={handleChange("expirationDate")}
-            onBlur={handleBlur("expirationDate")}
-            value={values.expirationDate}
-          />
-          {touched.expirationDate && errors.expirationDate && (
-            <Text style={styles.errorText}>{errors.expirationDate}</Text>
-          )}
-
-          <Text
-            onPress={handleSubmit as any}
-            style={styles.submitButton}
-          >
-            Yuborish
-          </Text>
-        </View>
-      )}
-    </Formik>
-  );
-};
+        <Text onPress={handleSubmit} style={styles.submitButton}>Yuborish</Text>
+      </View>
+    )}
+  </Formik>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -100,26 +67,23 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     padding: 10,
     marginBottom: 10,
   },
   errorInput: {
-    borderColor: "red",
+    borderColor: 'red',
   },
   errorText: {
-    color: "red",
+    color: 'red',
     marginBottom: 10,
   },
   submitButton: {
-    backgroundColor: "#007bff",
+    backgroundColor: '#007bff',
+    color: '#fff',
     padding: 10,
+    textAlign: 'center',
     borderRadius: 5,
-    alignItems: "center",
-  },
-  submitButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
   },
 });
 
