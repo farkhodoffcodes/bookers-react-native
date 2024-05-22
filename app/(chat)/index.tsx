@@ -20,12 +20,12 @@ const ChatSupport = () => {
                         <Text style={tw`text-white text-2xl font-bold mb-8`}>Чат</Text>
                         <Ionicons name="chatbubble-ellipses-outline" size={80} color="gray" style={tw`mb-8`} />
                         <Text style={tw`text-white text-lg font-bold mb-2`}>Поддержка Bookers</Text>
-                        <Text style={tw`text-gray-400 text-center mb-8`}>Свяжитесь с нами когда вам будет удобно</Text>
+                        <Text style={tw`text-gray-400 text-center mb-8`}>Свяжитесь с нами когда вам будет удобно 885305533</Text>
                         <CustomButton
                             title="Написать в поддержку"
                             backgroundColor="#A42E2B"
                             textColor="#FFFFFF"
-                        // onPress={handlePress}
+                            onPress={handlePress}
                         />
                     </View>
                 }

@@ -8,6 +8,7 @@ import Navbar from "@/app/(navigation)/navbar";
 import tw from "tailwind-react-native-classnames";
 import { RadioButton } from "react-native-paper";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { router } from "expo-router";
 
 const MasterButton: React.FC = () => {
 	const [collapsedNearby, setCollapsedNearby] = useState<boolean>(true);
@@ -78,7 +79,7 @@ const MasterButton: React.FC = () => {
 	};
 
 	const handleSubmit = () => {
-		Alert.alert("Все опции выбраны правильно");
+		router.push("/(tabs)")
 	};
 
 	useEffect(() => {
