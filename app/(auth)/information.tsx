@@ -20,7 +20,7 @@ const Information = () => {
                     </Text>
                 </View>
                 <View className='w-[90%] mt-4' >
-                    <ModalButton title='Я согласен' backgroundColor='#9C0A35' textColor='' />
+                    <ModalButton title='Я согласен' backgroundColor='#9C0A35' textColor='' onPress={() => router.push('/chat')}/>
                 </View>
             </SafeAreaView>
         </>

@@ -13,41 +13,6 @@ interface Message {
     avatar: string;
 }
 
-const initialMessages: Message[] = [
-    {
-        id: '1',
-        name: 'Служба поддержки',
-        message: 'Уважаемый клиент, мы при ...',
-        time: '2:14 PM',
-        unread: 1,
-        avatar: 'https://example.com/support-avatar.png',
-    },
-    {
-        id: '2',
-        name: 'Натали',
-        message: 'Не могли бы вы принять ме ...',
-        time: '2:10 PM',
-        unread: 1,
-        avatar: 'https://example.com/natali-avatar.png',
-    },
-    {
-        id: '3',
-        name: 'Мелисара',
-        message: 'Не могли бы вы принять ме ...',
-        time: '10:16 PM',
-        unread: 10,
-        avatar: 'https://example.com/melisara-avatar.png',
-    },
-    {
-        id: '4',
-        name: 'Мадина',
-        message: 'Вы: Не могли бы вы принять ...',
-        time: 'Среда',
-        unread: 0,
-        avatar: 'https://example.com/madina-avatar.png',
-    },
-];
-
 interface ChatCardProps {
     item: Message;
     onPress: (id: string) => void;
@@ -75,7 +40,7 @@ const ChatCard: React.FC<ChatCardProps> = ({ item, onPress, onLongPress, isSelec
             </View>
             <View style={tw`flex-1`}>
                 <View style={tw`flex-row justify-between items-center`}>
-                    <Text style={tw`text-dark font-bold`}>{name}</Text>
+                    <Text style={tw`text-black font-bold`}>{name}</Text>
                     {unread > 0 && (
                         <View style={tw`bg-red-600 rounded-full px-2 py-1`}>
                             <Text style={tw`text-white text-xs font-bold`}>{unread}</Text>
@@ -83,9 +48,9 @@ const ChatCard: React.FC<ChatCardProps> = ({ item, onPress, onLongPress, isSelec
                     )}
                 </View>
                 <View style={tw`flex-row justify-between`}>
-                    <Text style={tw`text-dark mt-1`}>{message}</Text>
+                    <Text style={tw`text-black mt-1`}>{message}</Text>
                     <View style={tw`flex-row justify-between items-center mt-1 `}>
-                        <Text style={tw`text-dark mr-2`}>{time}</Text>
+                        <Text style={tw`text-black mr-2`}>{time}</Text>
                         {unread === 0 && <FontAwesome name="check" size={14} color="#ccc" />}
                     </View>
                 </View>
