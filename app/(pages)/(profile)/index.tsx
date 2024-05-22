@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, Modal, StyleSheet, Button } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import tw from 'tailwind-react-native-classnames';
+import { router } from 'expo-router';
 
 const ProfilePage: React.FC = ({navigation}:any) => {
     const [isInviteModalVisible, setInviteModalVisible] = useState(false);
@@ -51,7 +52,7 @@ const ProfilePage: React.FC = ({navigation}:any) => {
 
             <TouchableOpacity
                 style={tw`flex-row justify-between items-center bg-gray-700 p-4 rounded-lg mb-2`}
-                onPress={() => navigateTo('PaymentMethods')}
+                onPress={() => router.push('/(pages)/(profile)/(payment)/(card_page)/card_page')}
             >
                 <View style={tw`flex-row items-center`}>
                     <FontAwesome name="credit-card" size={20} color="#E74C3C" />

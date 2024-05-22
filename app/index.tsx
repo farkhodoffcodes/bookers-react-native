@@ -26,7 +26,7 @@ const Index = () => {
                     <ModalButton onPress={() => router.push('/auth')} title="O'zbek" textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{marginTop: 10}}>
-                    <ModalButton onPress={() => router.push('/auth')} title='English' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => router.push('/(pages)/(profile)/(payment)/(card_page)/card_page')} title='English' textColor='white' backgroundColor='#9C0A35' />
                 </View>
             </View>
         </SafeAreaView>
