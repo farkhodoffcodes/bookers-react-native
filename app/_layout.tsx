@@ -48,6 +48,7 @@ export default function RootLayout() {
 				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/repet" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/application" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/historyTime" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(personal_data)/personal_data" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/serviceHistory" options={{ headerShown: false }} />
 				{/* <Stack.Screen name="(auth)/auth" options={{ headerShown: false }} /> */}
 
