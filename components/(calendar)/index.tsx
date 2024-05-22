@@ -45,7 +45,7 @@ const Calendar: React.FC<CalendarProps> = ({
         const date = new Date(year, month, day);
         week.push(date.getMonth() === month ? date.getDate() : '');
       }
-      dates.push(week);
+      dates.push(weekz);
     }
 
     return dates;
