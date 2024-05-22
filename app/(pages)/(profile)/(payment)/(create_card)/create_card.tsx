@@ -87,9 +87,10 @@ const CreateCard = () => (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     padding: 20,
     justifyContent: "center",
+    
   },
   input: {
     borderWidth: 1,
