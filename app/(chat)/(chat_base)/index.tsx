@@ -1,62 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, Image, FlatList, TextInput, Pressable, Button } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { View, Text, FlatList, TextInput, Button } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import ChatCard from '../userCard/card';
 import { MaterialIcons } from '@expo/vector-icons';
-
-
-
-
-
-interface Message {
-    id: string;
-    name: string;
-    message: string;
-    time: string;
-    unread: number;
-    avatar: string;
-}
-const initialMessages: Message[] = [
-    {
-        id: '1',
-        name: 'Служба поддержки',
-        message: 'Уважаемый клиент, мы при ...',
-        time: '2:14 PM',
-        unread: 1,
-        avatar: 'https://picsum.photos/200/300',
-    },
-    {
-        id: '2',
-        name: 'Натали',
-        message: 'Не могли бы вы принять ме ...',
-        time: '2:10 PM',
-        unread: 1,
-        avatar: 'https://picsum.photos/200/300',
-    },
-    {
-        id: '3',
-        name: 'Мелисара',
-        message: 'Не могли бы вы принять ме ...',
-        time: '10:16 PM',
-        unread: 10,
-        avatar: 'https://picsum.photos/200/300',
-    },
-    {
-        id: '4',
-        name: 'Мадина',
-        message: 'Вы: Не могли бы вы принять ...',
-        time: 'Среда',
-        unread: 0,
-        avatar: 'https://picsum.photos/200/300',
-    },
-];
-
+import { useNavigation } from '@react-navigation/native';
+import { useChatStore } from '../../(state_managment)/zustand/chat/useChatStore';
 
 const ChatList: React.FC = () => {
-    const [messages, setMessages] = useState<Message[]>(initialMessages);
+    const messages = useChatStore((state) => state.messages);
+    const deleteMessages = useChatStore((state) => state.deleteMessages);
+
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
     const [showDeleteButton, setShowDeleteButton] = useState(false);
+    const navigation = useNavigation();
 
     const handleLongPress = (id: string) => {
         if (!showDeleteButton) {
@@ -78,12 +34,13 @@ const ChatList: React.FC = () => {
             if (updatedSelectedIds.length === 0) {
                 setShowDeleteButton(false);
             }
+        } else {
+            navigation.navigate('(chat)/(chat_detail)', { messageId: id });
         }
-
     };
 
     const handleDelete = () => {
-        setMessages(messages.filter((message) => !selectedIds.includes(message.id)));
+        deleteMessages(selectedIds);
         setSelectedIds([]);
         setShowDeleteButton(false);
     };
@@ -109,8 +66,8 @@ const ChatList: React.FC = () => {
                 renderItem={({ item }) => (
                     <ChatCard
                         item={item}
-                        onPress={handlePress}
-                        onLongPress={handleLongPress}
+                        onPress={() => handlePress(item.id)}
+                        onLongPress={() => handleLongPress(item.id)}
                         isSelected={selectedIds.includes(item.id)}
                     />
                 )}
