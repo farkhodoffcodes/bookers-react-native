@@ -7,8 +7,8 @@ import Slider from "@react-native-community/slider";
 import Navbar from "@/app/(navigation)/navbar";
 import tw from "tailwind-react-native-classnames";
 import { RadioButton } from "react-native-paper";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
-import { router } from "expo-router";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { useRouter } from "expo-router";
 
 const MasterButton: React.FC = () => {
 	const [collapsedNearby, setCollapsedNearby] = useState<boolean>(true);
@@ -30,6 +30,8 @@ const MasterButton: React.FC = () => {
 	const [isDatePickerVisible, setDatePickerVisibility] = useState<boolean>(false);
 	const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 	const [isSubmitEnabled, setIsSubmitEnabled] = useState<boolean>(false);
+
+	const router = useRouter();
 
 	const toggleCollapsedNearby = () => {
 		setCollapsedNearby(!collapsedNearby);
@@ -69,22 +71,19 @@ const MasterButton: React.FC = () => {
 		setDatePickerVisibility(true);
 	};
 
-	const hideDatePicker = () => {
+	const handleConfirm = (event: any, date?: Date) => {
 		setDatePickerVisibility(false);
-	};
-
-	const handleConfirm = (date: Date) => {
-		setSelectedDate(date);
-		hideDatePicker();
+		if (date) {
+			setSelectedDate(date);
+		}
 	};
 
 	const handleSubmit = () => {
-		router.push("/(tabs)")
+		router.push("/searchPage");
 	};
 
 	useEffect(() => {
 		const allValid = !!selectedDate || isCheckedCalendarNotImportant;
-
 		setIsSubmitEnabled(allValid);
 	}, [selectedDate, isCheckedCalendarNotImportant]);
 
@@ -336,12 +335,14 @@ const MasterButton: React.FC = () => {
 				</View>
 			</Collapsible>
 
-			<DateTimePickerModal
-				isVisible={isDatePickerVisible}
-				mode="date"
-				onConfirm={handleConfirm}
-				onCancel={hideDatePicker}
-			/>
+			{isDatePickerVisible && (
+				<DateTimePicker
+					value={selectedDate || new Date()}
+					mode="date"
+					display="default"
+					onChange={handleConfirm}
+				/>
+			)}
 
 			{/* Submit Button */}
 			<View style={tw`p-5`}>
