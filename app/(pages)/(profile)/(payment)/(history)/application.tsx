@@ -18,9 +18,9 @@ const Application = () => {
 
     return (
         <View className='p-3'>
-            <SafeAreaView>
-                <NotificationNav name='Натали' backIcon={() => navigation.goBack()} deleteIcon={false} />
-            </SafeAreaView>
+                <SafeAreaView>
+                    <NotificationNav name='Натали' backIcon={() => navigation.goBack()} deleteIcon={false} />
+                </SafeAreaView>
             <View className='mb-2'>
                 <ServiceCard imageUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO211SYDlidvXxXeLJUymNqv8lDa05Hbbmly-wMYtZ2w&s' title='Натали' subtitle='Мирабадский р-н, ул. Нурафшон, 32' onPress={Click} />
             </View>
