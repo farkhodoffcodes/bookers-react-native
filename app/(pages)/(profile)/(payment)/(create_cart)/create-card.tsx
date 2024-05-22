@@ -81,7 +81,11 @@ const CreateCard: React.FC = () => {
           {touched.expirationDate && errors.expirationDate && (
             <Text style={styles.errorText}>{errors.expirationDate}</Text>
           )}
-
+          <View style={styles.errorText}>
+            <Text>
+              Jo'natish
+            </Text>
+          </View>
           <Text
             onPress={handleSubmit as any}
             style={styles.submitButton}
