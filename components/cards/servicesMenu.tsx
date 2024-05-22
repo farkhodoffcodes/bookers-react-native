@@ -23,6 +23,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ imageUrl, title, subtitle, on
 };
 
 const styles = StyleSheet.create({
+
 	card: {
 		backgroundColor: "#b9b9c9",
 		borderRadius: 20,
