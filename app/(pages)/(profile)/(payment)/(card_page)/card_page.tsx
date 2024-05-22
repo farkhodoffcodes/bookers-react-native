@@ -35,8 +35,8 @@ const router = useRouter()
           <View>
             <AntDesign name="creditcard" size={100} color="white" />
           </View>
-          <Text className="text-white">Вы не добавили платежную карту</Text>
-          <Text className="text-white">
+          <Text className="text-white font-semibold text-lg">Вы не добавили платежную карту</Text>
+          <Text className="text-white text-xs text-center px-5">
             Добавьте карту, чтобы быстро и легко совершать платежи через
             приложение
           </Text>
@@ -44,7 +44,7 @@ const router = useRouter()
             backgroundColor="#9C0A35"
             textColor="#fff"
             title="Добавить карту"
-            onPress={() => router.push("/(pages)/(profile)/(payment)/(create_card)/create_card")}
+            onPress={() => router.push("/(pages)/(profile)/(payment)/(create_card)/create_card/")}
           />
         </View>
       )}
@@ -57,5 +57,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    gap: 10,
   },
 });
