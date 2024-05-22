@@ -43,7 +43,7 @@ export default function CardPage() {
             backgroundColor="#9C0A35"
             textColor="#fff"
             title="Добавить карту"
-            onPress={() => router.push("/(pages)/(profile)/(payment)/(create_card)/create-card")}
+            onPress={() => router.push("/(pages)/(profile)/(payment)/(create_card)/create-card/")}
           />
         </View>
       )}
