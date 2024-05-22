@@ -1,8 +1,7 @@
-import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView,} from 'react-native'
 import React from 'react'
-import ModalButton from '@/components/(buttons)/modal-btn';
-import { router } from 'expo-router';
 import Navbar from '../(navigation)/navbar';
+import NumberPhoneInput from './phoneNumberInput';
 
 const NumberCreate = () => {
   return (
@@ -13,18 +12,16 @@ const NumberCreate = () => {
         </View>
       </View>
       <SafeAreaView style={styles.container}>
-        <View className='items-center'>
+        <View className='items-center mb-5'>
           <Text className='text-white text-lg mb-3'>Ваш номер телефона</Text>
           <Text className='text-[#4F4F4F] text-center'>Мы отправили вам SMS с кодом подтверждения.</Text>
         </View>
+        <NumberPhoneInput />
       </SafeAreaView>
     </>
-
   )
 }
-
 export default NumberCreate;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
