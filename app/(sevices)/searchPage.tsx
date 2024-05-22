@@ -1,4 +1,12 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Modal, ActivityIndicator } from "react-native";
+import {
+	View,
+	Text,
+	TextInput,
+	TouchableOpacity,
+	ScrollView,
+	Modal,
+	ActivityIndicator,
+} from "react-native";
 import React, { useState, useEffect } from "react";
 import Navbar from "./../(navigation)/navbar";
 import tw from "tailwind-react-native-classnames";
@@ -7,7 +15,7 @@ import Slider from "@react-native-community/slider";
 import { RadioButton } from "react-native-paper";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import MasterCard from "@/components/cards/aboutMaster";
-import  Collapsible  from 'react-native-collapsible';
+import Collapsible from "react-native-collapsible";
 import { AntDesign } from "@expo/vector-icons";
 
 // MasterCard uchun rekvizitlarni aniqlaymiz
@@ -129,7 +137,10 @@ const SearchPage = () => {
 			<View style={tw`p-5`}>
 				{/* Filter button and checkbox text */}
 				<View style={tw`flex-row items-center justify-between mb-5`}>
-					<TouchableOpacity style={tw`bg-red-800 p-3 rounded-lg`} onPress={() => setFilterVisible(true)}>
+					<TouchableOpacity
+						style={tw`bg-red-800 p-3 rounded-lg`}
+						onPress={() => setFilterVisible(true)}
+					>
 						<Text style={tw`text-white text-lg`}>Фильтр</Text>
 					</TouchableOpacity>
 					<View style={tw`flex-row items-center`}>
@@ -175,19 +186,23 @@ const SearchPage = () => {
 
 				{/* Filter modal */}
 				<Modal visible={filterVisible} animationType="slide" transparent={true}>
-					<View style={tw`flex-1 justify-end`}>
+					<ScrollView contentContainerStyle={tw`flex-1 justify-end`}>
 						<View style={tw`bg-gray-800 p-5 rounded-t-lg`}>
 							<Text style={tw`text-white text-xl font-bold mb-5`}>Фильтр</Text>
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedGender}>
-								<Text style={tw`text-white text-lg`}>Пол мастера</Text>
+							<TouchableOpacity
+								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
+								onPress={toggleCollapsedGender}
+							>
+								<Text style={tw`text-black font-bold text-lg`}>Пол мастера</Text>
 								{collapsedGender ? (
-									<AntDesign name="right" size={24} color="white" />
+									<AntDesign name="right" size={24} color="black" />
 								) : (
-									<AntDesign name="down" size={24} color="white" />
+									<AntDesign name="down" size={24} color="black" />
 								)}
 							</TouchableOpacity>
+
 							<Collapsible collapsed={collapsedGender} align="center">
-								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`flex-row items-center mb-3`}>
 										<RadioButton
 											value="male"
@@ -195,7 +210,7 @@ const SearchPage = () => {
 											onPress={() => setCheckedRadio("male")}
 											color="#800000"
 										/>
-										<Text style={tw`text-white text-lg`}>Мужчины</Text>
+										<Text style={tw`text-black font-bold text-lg`}>Мужчины</Text>
 									</View>
 									<View style={tw`flex-row items-center mb-3`}>
 										<RadioButton
@@ -204,30 +219,24 @@ const SearchPage = () => {
 											onPress={() => setCheckedRadio("female")}
 											color="#800000"
 										/>
-										<Text style={tw`text-white text-lg`}>Женщины</Text>
-									</View>
-									<View style={tw`flex-row items-center`}>
-										<Checkbox
-											// value={isCheckedNotImportant}
-											// onValueChange={setCheckedNotImportant}
-											color={"#800000 "}
-											style={tw`mr-2`}
-										/>
-										<Text style={tw`text-lg text-white`}>не важно</Text>
+										<Text style={tw`text-black font-bold text-lg`}>Женщины</Text>
 									</View>
 								</View>
 							</Collapsible>
 
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedNearby}>
-								<Text style={tw`text-white text-lg`}>Рядом со мной</Text>
+							<TouchableOpacity
+								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
+								onPress={toggleCollapsedNearby}
+							>
+								<Text style={tw`text-black font-bold  text-lg`}>Рядом со мной</Text>
 								{collapsedNearby ? (
-									<AntDesign name="right" size={24} color="white" />
+									<AntDesign name="right" size={24} color="black" />
 								) : (
-									<AntDesign name="down" size={24} color="white" />
+									<AntDesign name="down" size={24} color="black" />
 								)}
 							</TouchableOpacity>
 							<Collapsible collapsed={collapsedNearby} align="center">
-								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`mb-5`}>
 										<Text style={tw`text-lg text-red-800 mb-2`}>{sliderValue} км</Text>
 										<Slider
@@ -243,28 +252,22 @@ const SearchPage = () => {
 											disabled={isCheckedNearby}
 										/>
 									</View>
-									<View style={tw`flex-row items-center`}>
-										<Checkbox
-											style={tw`mr-2`}
-											value={isCheckedNearby}
-											onValueChange={setCheckedNearby}
-											color={isCheckedNearby ? "#800000" : undefined}
-										/>
-										<Text style={tw`text-lg text-white`}>не важно</Text>
-									</View>
 								</View>
 							</Collapsible>
 
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedPrice}>
-								<Text style={tw`text-white text-lg`}>Цена не более</Text>
+							<TouchableOpacity
+								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
+								onPress={toggleCollapsedPrice}
+							>
+								<Text style={tw`text-black font-bold text-lg`}>Цена не более</Text>
 								{collapsedPrice ? (
-									<AntDesign name="right" size={24} color="white" />
+									<AntDesign name="right" size={24} color="black" />
 								) : (
-									<AntDesign name="down" size={24} color="white" />
+									<AntDesign name="down" size={24} color="black" />
 								)}
 							</TouchableOpacity>
 							<Collapsible collapsed={collapsedPrice} align="center">
-								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`mb-5`}>
 										<Text style={tw`text-lg text-red-800 mb-2`}>{priceValue} $</Text>
 										<Slider
@@ -280,28 +283,22 @@ const SearchPage = () => {
 											disabled={isCheckedPriceNotImportant}
 										/>
 									</View>
-									<View style={tw`flex-row items-center`}>
-										<Checkbox
-											style={tw`mr-2`}
-											value={isCheckedPriceNotImportant}
-											onValueChange={setCheckedPriceNotImportant}
-											color={isCheckedPriceNotImportant ? "#800000" : undefined}
-										/>
-										<Text style={tw`text-lg text-white`}>не важно</Text>
-									</View>
 								</View>
 							</Collapsible>
 
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedRating}>
-								<Text style={tw`text-white text-lg`}>Рейтинг</Text>
+							<TouchableOpacity
+								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
+								onPress={toggleCollapsedRating}
+							>
+								<Text style={tw`text-black font-bold text-lg`}>Рейтинг</Text>
 								{collapsedRating ? (
-									<AntDesign name="right" size={24} color="white" />
+									<AntDesign name="right" size={24} color="black" />
 								) : (
-									<AntDesign name="down" size={24} color="white" />
+									<AntDesign name="down" size={24} color="black" />
 								)}
 							</TouchableOpacity>
 							<Collapsible collapsed={collapsedRating} align="center">
-								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
+								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`mb-5`}>
 										<Text style={tw`text-lg text-red-800 mb-2`}>{ratingValue}+</Text>
 										<Slider
@@ -317,24 +314,18 @@ const SearchPage = () => {
 											disabled={isCheckedRatingNotImportant}
 										/>
 									</View>
-									<View style={tw`flex-row items-center`}>
-										<Checkbox
-											style={tw`mr-2`}
-											value={isCheckedRatingNotImportant}
-											onValueChange={setCheckedRatingNotImportant}
-											color={isCheckedRatingNotImportant ? "#800000" : undefined}
-										/>
-										<Text style={tw`text-lg text-white`}>не важно</Text>
-									</View>
 								</View>
 							</Collapsible>
 
-							<TouchableOpacity style={tw`bg-gray-600 p-3 rounded-lg mb-3`} onPress={toggleCollapsedCalendar}>
-								<Text style={tw`text-white text-lg`}>Дата записи</Text>
+							<TouchableOpacity
+								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
+								onPress={toggleCollapsedCalendar}
+							>
+								<Text style={tw`text-black font-bold text-lg`}>Дата записи</Text>
 								{collapsedCalendar ? (
-									<AntDesign name="right" size={24} color="white" />
+									<AntDesign name="right" size={24} color="black" />
 								) : (
-									<AntDesign name="down" size={24} color="white" />
+									<AntDesign name="down" size={24} color="black" />
 								)}
 							</TouchableOpacity>
 							<Collapsible collapsed={collapsedCalendar} align="center">
@@ -348,15 +339,6 @@ const SearchPage = () => {
 											{selectedDate ? selectedDate.toLocaleDateString() : "Выберите дату"}
 										</Text>
 									</TouchableOpacity>
-									<View style={tw`flex-row items-center mt-2`}>
-										<Checkbox
-											style={tw`mr-2`}
-											value={isCheckedCalendarNotImportant}
-											onValueChange={setCheckedCalendarNotImportant}
-											color={isCheckedCalendarNotImportant ? "#800000" : undefined}
-										/>
-										<Text style={tw`text-lg text-white`}>не важно</Text>
-									</View>
 								</View>
 							</Collapsible>
 
@@ -367,11 +349,14 @@ const SearchPage = () => {
 								onCancel={hideDatePicker}
 							/>
 
-							<TouchableOpacity style={tw`bg-red-800 p-4 rounded-lg items-center`} onPress={() => setFilterVisible(false)}>
-								<Text style={tw`text-white text-lg`}>Сохранить</Text>
+							<TouchableOpacity
+								style={tw`bg-red-800 p-4 rounded-lg items-center`}
+								onPress={() => setFilterVisible(false)}
+							>
+								<Text style={tw`text-white text-lg`}>Filter</Text>
 							</TouchableOpacity>
 						</View>
-					</View>
+					</ScrollView>
 				</Modal>
 			</View>
 		</View>
