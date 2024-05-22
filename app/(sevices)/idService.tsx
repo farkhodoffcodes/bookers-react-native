@@ -49,7 +49,7 @@ const MasterButton: React.FC = () => {
 
 	return (
 		<View style={tw`bg-gray-900`}>
-			<Navbar name="Здоровье и красота волос" centerName={true} back={true} icons={false} />
+			<Navbar name="Здоровье и красота " centerName={true} back={true} icons={false} />
 			{/* <Navbar name=""back={true} icons={false} centerName={false}/> */}
 			<TouchableOpacity style={styles.button} onPress={toggleCollapsed}>
 				<Text style={styles.buttonText}>Пол мастера</Text>
@@ -63,6 +63,9 @@ const MasterButton: React.FC = () => {
 				<SliderCompoenent initialSliderValue={5} />
 				<View style={styles.content}></View>
 			</Collapsible>
+      <TouchableOpacity>
+        {/* select container */}
+      </TouchableOpacity>
 		</View>
 	);
 };
