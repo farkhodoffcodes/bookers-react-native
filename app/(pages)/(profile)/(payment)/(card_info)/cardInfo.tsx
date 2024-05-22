@@ -13,7 +13,7 @@ const CardInfo = () => {
     <ScrollView style={tw`h-[100%] bg-dark`}>
       <Navbar back={true} name="Натали" icons={false} centerName={true} />
       <View style={tw`mt-3`}>
-        <CustomButton title='Отклонён' backgroundColor='red' textColor='#ffff' />
+        <CustomButton onPress={() => {}} title='Отклонён' backgroundColor='red' textColor='#ffff' />
         <View style={tw`bg-dark w-full h-screen p-3`}>
           <CardsDatail name='Натали' alias='Beauty Wave' rating={5} location='Мирабадский р-н, ул. Нурафшон, 32' imageUrl='https://via.placeholder.com/50' orders={20} orderZakaz='заказа,' orderKlent=' клинетов' clients={50} master='Женский мастер' />
         </View>
@@ -33,18 +33,17 @@ const CardInfo = () => {
           Немного?
           </Text>
           <View style={tw`flex justify-between flex-row w-[100%] mt-3 fw-bold`}>
-            <CustomButton title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/>
-            <CustomButton title='10 000' backgroundColor='#9C0A35' textColor='#FFFFFF'/>
-            <CustomButton title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/> 
+            <CustomButton onPress={() => {}} title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/>
+            <CustomButton onPress={() => {}} title='10 000' backgroundColor='#9C0A35' textColor='#FFFFFF'/>
+            <CustomButton onPress={() => {}} title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/> 
           </View>
           <Text  style={tw`mt-2 font-bold`}>
           Побольше?
-          
           </Text> 
           <View style={tw`flex justify-between flex-row w-[100%] mt-3 fw-bold`}>
-            <CustomButton title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/>
-            <CustomButton title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/>
-            <CustomButton title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/> 
+            <CustomButton onPress={() => {}} title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/>
+            <CustomButton onPress={() => {}} title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/>
+            <CustomButton onPress={() => {}} title='10 000' backgroundColor='#ffff' textColor='#4F4F4F'/> 
           </View> 
         </View>
       </View>
