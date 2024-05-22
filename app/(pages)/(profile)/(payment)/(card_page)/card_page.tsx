@@ -2,14 +2,13 @@ import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NotificationNav from "@/components/navigation/notification_nav";
-import { useNavigation, useRouter } from "expo-router";
+import { router, useNavigation, useRouter } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 import ModalButton from "@/components/(buttons)/modal-btn";
 
 export default function CardPage() {
   const navigation = useNavigation();
   const [card, setCard] = useState(null);
-const router = useRouter()
 
   return (
     <View className="flex-1 px-5">
@@ -44,7 +43,7 @@ const router = useRouter()
             backgroundColor="#9C0A35"
             textColor="#fff"
             title="Добавить карту"
-            onPress={() => router.push("/(pages)/(profile)/(payment)/(create_card)/create_card/")}
+            onPress={() => router.push("/(pages)/(profile)/(payment)/(create_card)/create_card")}
           />
         </View>
       )}
