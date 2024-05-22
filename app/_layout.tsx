@@ -33,22 +33,48 @@ export default function RootLayout() {
 				<Stack.Screen name="(auth)/firstWelcome" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/secondWelcome" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(notification)/index" options={{ headerShown: false }} />
+<<<<<<< HEAD
+				<Stack.Screen
+					name="(pages)/(profile)/(payment)/(card_page)/card_page"
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name="(pages)/(profile)/(payment)/(create_card)/create-card"
+					options={{ headerShown: false }}
+				/>
+=======
 				<Stack.Screen name="(pages)/(profile)/(personal_data)/personal_data" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(card_page)/card_page" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(create_card)/create_card" options={{ headerShown: false }} />
+>>>>>>> b982d8a8c4eeed74952ca75ddef5e87d97782f4b
 				<Stack.Screen name="(_landing)/" options={{ headerShown: false }} />
 				<Stack.Screen name="(_landing)/map" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/auth" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/information" options={{ headerShown: false }} />
 				<Stack.Screen name="(sevices)/services" options={{ headerShown: false }} />
 				<Stack.Screen name="(sevices)/idService" options={{ headerShown: false }} />
-				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/historyUser" options={{ headerShown: false }} />
-				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/repet" options={{ headerShown: false }} />
-				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/application" options={{ headerShown: false }} />
-				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/historyTime" options={{ headerShown: false }} />
-				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/serviceHistory" options={{ headerShown: false }} />
+				<Stack.Screen name="(sevices)/searchPage" options={{ headerShown: false }} />
+				<Stack.Screen
+					name="(pages)/(profile)/(payment)/(history)/historyUser"
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name="(pages)/(profile)/(payment)/(history)/repet"
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name="(pages)/(profile)/(payment)/(history)/application"
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name="(pages)/(profile)/(payment)/(history)/historyTime"
+					options={{ headerShown: false }}
+				/>
+				<Stack.Screen
+					name="(pages)/(profile)/(payment)/(history)/serviceHistory"
+					options={{ headerShown: false }}
+				/>
 				{/* <Stack.Screen name="(auth)/auth" options={{ headerShown: false }} /> */}
-
 
 				<Stack.Screen name="(auth)/switchPage" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/createAccPage" options={{ headerShown: false }} />
