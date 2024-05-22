@@ -7,7 +7,7 @@ type Props = {
   title: string;
   backgroundColor: string;
   textColor: string;
-  onPress: () => void;
+  onPress?: () => void;
 };
 
 const ModalButton: React.FC<Props> = ({ title, backgroundColor, textColor, onPress }) => {
