@@ -61,19 +61,6 @@ export default function RootLayout() {
 				{/* <Stack.Screen name="(sevices)/idservice" options={{ headerShown: false }} /> */}
 				<Stack.Screen name="+not-found" />
 			</Stack>
-
-			{/* <Stack.Navigator initialRouteName="Profile">
-				<Stack.Screen name="Profile" component={ProfilePage} />
-				<Stack.Screen name="Share" component={ShareScreen} />
-				<Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} />
-				<Stack.Screen name="History" component={HistoryScreen} />
-				<Stack.Screen name="Profile" component={ProfileScreen} />
-				<Stack.Screen name="Help" component={HelpScreen} />
-				<Stack.Screen name="Notifications" component={NotificationsScreen} />
-				<Stack.Screen name="LoyaltyCard" component={LoyaltyCardScreen} />
-				<Stack.Screen name="Settings" component={SettingsScreen} />
-				<Stack.Screen name="Logout" component={LogoutScreen} />
-			</Stack.Navigator> */}
 		</ThemeProvider>
 	);
 }
