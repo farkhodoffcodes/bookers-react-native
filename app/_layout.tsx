@@ -51,6 +51,7 @@ export default function RootLayout() {
 				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/historyTime" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/serviceHistory" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/history" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(payment)/(history)/pastUser" options={{ headerShown: false }} />
 				{/* <Stack.Screen name="(auth)/auth" options={{ headerShown: false }} /> */}
 				<Stack.Screen name="(auth)/switchPage" options={{ headerShown: false }} />
 				<Stack.Screen name="(auth)/createAccPage" options={{ headerShown: false }} />

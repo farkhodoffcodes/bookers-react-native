@@ -36,7 +36,7 @@ const Repet = () => {
       <View>
         <Text className='text-white'>Свободное время</Text>
       </View>
-      <View className='flex flex-row flex-wrap w-full justify-evenly p-3'>
+      <View className='flex flex-row flex-wrap justify-center'>
         <CustomButton backgroundColor='#F2F2F2' title='08:00' textColor='' borderColor='' onPress={Click}/>
         <CustomButton backgroundColor='#F2F2F2' title='08:00' textColor='' borderColor='' onPress={Click}/>
         <CustomButton backgroundColor='#F2F2F2' title='08:00' textColor='' borderColor='' onPress={Click}/>

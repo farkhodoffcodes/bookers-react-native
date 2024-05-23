@@ -9,6 +9,7 @@ import RecordsCard from '@/components/cards/records_card'
 import MasterCard from '@/components/cards/aboutMaster'
 import CardsDatail from '@/components/cards/cardsDatil'
 import CustomButton from '@/components/(buttons)'
+import MasterCardLocation from '@/components/cards/aboutMasterLOcation'
 
 const History = () => {
     const [isOpenCard, setIsOpenCard] = useState(false)
@@ -49,18 +50,17 @@ const History = () => {
                     isOpenCard={isOpenCard}
                     openCard={openCard}
                     openChildComponent={
-                        <CardsDatail
-                            clients={100}
-                            orderKlent=' sum'
+                        <MasterCardLocation
+                            btnText='Написать сообщение'
                             imageUrl='https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_640.png'
                             name='Натали'
+                            price='500 000 ming'
                             alias='Beauty Wave'
                             master='Женский мастер'
                             rating={5}
+                            icons={<AntDesign name={`clockcircleo`} size={24} color={`#828282`} className='' />}
                             location='Яккасарайский р-н, ул. Мирабад, 62а'
-                            orders={350}
-                            orderZakaz=''
-                            openChildComponent={
+                             openChildComponent={
                                 <IconsButton
                                 title='Написать сообщение'
                                 backgroundColor='#9C0A35'
