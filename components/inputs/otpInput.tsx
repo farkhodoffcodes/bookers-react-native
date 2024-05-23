@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import OTPTextInput from 'react-native-otp-textinput';
 import ModalButton from '../(buttons)/modal-btn';
+import { router } from 'expo-router';
 
 const styles = StyleSheet.create({
     container: {
@@ -25,10 +26,10 @@ const styles = StyleSheet.create({
     },
 });
 
-const OtpInput = ({ onOtpComplete }: any) => {
+const OtpInput = ({ onOtpComplete }:any) => {
     const [otp, setOtp] = useState('');
 
-    const handleOtpChange = (text: any) => {
+    const handleOtpChange = (text:any) => {
         setOtp(text);
         if (text.length === 4) {
             onOtpComplete(text);
@@ -44,7 +45,10 @@ const OtpInput = ({ onOtpComplete }: any) => {
             />
             {otp.length === 4 && (
                 <View style={styles.buttonContainer}>
-                    <ModalButton backgroundColor='#9c0935' textColor='white' title="Submit" onPress={() => alert('OTP Submitted!')} />
+                    <ModalButton backgroundColor='#9c0935' textColor='white' title="Submit" onPress={() => {
+                        alert('message Submitted!')
+                        router.push('/card_page')
+                    }} />
                 </View>
             )}
         </View>

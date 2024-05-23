@@ -4,6 +4,10 @@ import tw from 'tailwind-react-native-classnames';
 import OtpInput from '@/components/inputs/otpInput';
 
 export default function CartVerify() {
+    const handleOtpComplete = (otp: any) => {
+        console.log('OTP is complete:', otp);
+        // Shu yerda OTP to'liq bo'lganda amalga oshiradigan boshqa funksiyalarni yozishingiz mumkin.
+    };
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -14,7 +18,7 @@ export default function CartVerify() {
                     <Text style={tw`text-white mb-14 text-xl`}>Подтверждение номера</Text>
                     <Text style={tw`text-white mb-10 text-xl`}>+99 888 517 11 98</Text>
                     <Text style={tw`text-gray-400 mb-10 text-sm text-center px-10`}>Мы отправили вам SMS с кодом подтверждения.</Text>
-                    <OtpInput />
+                    <OtpInput onOtpComplete={handleOtpComplete} />
                     <Text style={tw`text-gray-400 mb-10 text-sm text-center mt-5`}>отправить повторно через <Text>00 : 06</Text></Text>
                 </View>
             </TouchableWithoutFeedback>
