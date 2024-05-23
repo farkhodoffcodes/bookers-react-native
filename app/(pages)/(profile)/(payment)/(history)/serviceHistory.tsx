@@ -13,7 +13,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 const ServiceHistory = () => {
   const filters = [
-    "Все",
+    "Все",  
     "Волосы",
     "Ресницы",
     "Ногти",
