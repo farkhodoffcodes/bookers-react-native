@@ -14,6 +14,8 @@ type MasterCardProps = {
     orderKlent:string;
     clients: number;
     master: string;
+    openChildComponent?:JSX.Element
+    
 };
 
 const CardsDatail: React.FC<MasterCardProps> = ({
@@ -27,6 +29,7 @@ const CardsDatail: React.FC<MasterCardProps> = ({
     master,
     orderKlent,
     orderZakaz,
+    openChildComponent
 }) => {
     const renderStars = () => {
         const stars = [];
@@ -61,7 +64,13 @@ const CardsDatail: React.FC<MasterCardProps> = ({
                         </View>
                     </View>
                 </View>
-                <Text style={tw`text-gray-700 mb-2`}>{location}</Text>
+                <Text style={tw`text-gray-700 `}>{location}
+                </Text>
+                <View className="flex flex-row mt-2">
+                  <Text>{openChildComponent}</Text>
+                  <Text>{openChildComponent}</Text>
+                  <Text>{openChildComponent}</Text>
+                </View>
 
             </View>
         </View>
