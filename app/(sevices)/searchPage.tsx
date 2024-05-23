@@ -18,7 +18,6 @@ import MasterCard from "@/components/cards/aboutMaster";
 import Collapsible from "react-native-collapsible";
 import { AntDesign } from "@expo/vector-icons";
 
-// MasterCard uchun rekvizitlarni aniqlaymiz
 const masterData = [
 	{
 		name: "Master 1",
@@ -76,11 +75,7 @@ const SearchPage = () => {
 	const [isChecked, setChecked] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [filterVisible, setFilterVisible] = useState(false);
-	const [collapsedGender, setCollapsedGender] = useState<boolean>(true);
-	const [collapsedNearby, setCollapsedNearby] = useState<boolean>(true);
-	const [collapsedPrice, setCollapsedPrice] = useState<boolean>(true);
-	const [collapsedRating, setCollapsedRating] = useState<boolean>(true);
-	const [collapsedCalendar, setCollapsedCalendar] = useState<boolean>(true);
+	const [activeCollapse, setActiveCollapse] = useState<string | null>(null);
 	const [checked, setCheckedRadio] = useState<string>("male");
 	const [sliderValue, setSliderValue] = useState<number>(1.5);
 	const [priceValue, setPriceValue] = useState<number>(100);
@@ -92,24 +87,8 @@ const SearchPage = () => {
 	const [isDatePickerVisible, setDatePickerVisibility] = useState<boolean>(false);
 	const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
-	const toggleCollapsedGender = () => {
-		setCollapsedGender(!collapsedGender);
-	};
-
-	const toggleCollapsedNearby = () => {
-		setCollapsedNearby(!collapsedNearby);
-	};
-
-	const toggleCollapsedPrice = () => {
-		setCollapsedPrice(!collapsedPrice);
-	};
-
-	const toggleCollapsedRating = () => {
-		setCollapsedRating(!collapsedRating);
-	};
-
-	const toggleCollapsedCalendar = () => {
-		setCollapsedCalendar(!collapsedCalendar);
+	const toggleCollapse = (section: string) => {
+		setActiveCollapse((prev) => (prev === section ? null : section));
 	};
 
 	const showDatePicker = () => {
@@ -132,7 +111,7 @@ const SearchPage = () => {
 	}, []);
 
 	return (
-		<View style={tw`h-full bg-gray-900`}>
+		<View style={tw`h-full bg-gray-900 py-5`}>
 			<Navbar name="Здоровье и красота волос" icons={false} centerName={true} back={true} />
 			<View style={tw`p-5`}>
 				{/* Filter button and checkbox text */}
@@ -167,7 +146,7 @@ const SearchPage = () => {
 				{loading ? (
 					<ActivityIndicator size="large" color="#800000" />
 				) : (
-					<ScrollView style={tw`h-4/6`}>
+					<ScrollView style={tw`mb-52`}>
 						{masterData.map((master, index) => (
 							<MasterCard
 								key={index}
@@ -191,17 +170,17 @@ const SearchPage = () => {
 							<Text style={tw`text-white text-xl font-bold mb-5`}>Фильтр</Text>
 							<TouchableOpacity
 								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
-								onPress={toggleCollapsedGender}
+								onPress={() => toggleCollapse("gender")}
 							>
 								<Text style={tw`text-black font-bold text-lg`}>Пол мастера</Text>
-								{collapsedGender ? (
-									<AntDesign name="right" size={24} color="black" />
-								) : (
+								{activeCollapse === "gender" ? (
 									<AntDesign name="down" size={24} color="black" />
+								) : (
+									<AntDesign name="right" size={24} color="black" />
 								)}
 							</TouchableOpacity>
 
-							<Collapsible collapsed={collapsedGender} align="center">
+							<Collapsible collapsed={activeCollapse !== "gender"} align="center">
 								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`flex-row items-center mb-3`}>
 										<RadioButton
@@ -226,16 +205,16 @@ const SearchPage = () => {
 
 							<TouchableOpacity
 								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
-								onPress={toggleCollapsedNearby}
+								onPress={() => toggleCollapse("nearby")}
 							>
 								<Text style={tw`text-black font-bold  text-lg`}>Рядом со мной</Text>
-								{collapsedNearby ? (
-									<AntDesign name="right" size={24} color="black" />
-								) : (
+								{activeCollapse === "nearby" ? (
 									<AntDesign name="down" size={24} color="black" />
+								) : (
+									<AntDesign name="right" size={24} color="black" />
 								)}
 							</TouchableOpacity>
-							<Collapsible collapsed={collapsedNearby} align="center">
+							<Collapsible collapsed={activeCollapse !== "nearby"} align="center">
 								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`mb-5`}>
 										<Text style={tw`text-lg text-red-800 mb-2`}>{sliderValue} км</Text>
@@ -257,16 +236,16 @@ const SearchPage = () => {
 
 							<TouchableOpacity
 								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
-								onPress={toggleCollapsedPrice}
+								onPress={() => toggleCollapse("price")}
 							>
 								<Text style={tw`text-black font-bold text-lg`}>Цена не более</Text>
-								{collapsedPrice ? (
-									<AntDesign name="right" size={24} color="black" />
-								) : (
+								{activeCollapse === "price" ? (
 									<AntDesign name="down" size={24} color="black" />
+								) : (
+									<AntDesign name="right" size={24} color="black" />
 								)}
 							</TouchableOpacity>
-							<Collapsible collapsed={collapsedPrice} align="center">
+							<Collapsible collapsed={activeCollapse !== "price"} align="center">
 								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`mb-5`}>
 										<Text style={tw`text-lg text-red-800 mb-2`}>{priceValue} $</Text>
@@ -288,16 +267,16 @@ const SearchPage = () => {
 
 							<TouchableOpacity
 								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
-								onPress={toggleCollapsedRating}
+								onPress={() => toggleCollapse("rating")}
 							>
 								<Text style={tw`text-black font-bold text-lg`}>Рейтинг</Text>
-								{collapsedRating ? (
-									<AntDesign name="right" size={24} color="black" />
-								) : (
+								{activeCollapse === "rating" ? (
 									<AntDesign name="down" size={24} color="black" />
+								) : (
+									<AntDesign name="right" size={24} color="black" />
 								)}
 							</TouchableOpacity>
-							<Collapsible collapsed={collapsedRating} align="center">
+							<Collapsible collapsed={activeCollapse !== "rating"} align="center">
 								<View style={tw`bg-gray-300 p-4 rounded-lg mb-3`}>
 									<View style={tw`mb-5`}>
 										<Text style={tw`text-lg text-red-800 mb-2`}>{ratingValue}+</Text>
@@ -319,16 +298,16 @@ const SearchPage = () => {
 
 							<TouchableOpacity
 								style={tw`bg-gray-300 p-3 rounded-lg mb-3 flex-row justify-between items-center`}
-								onPress={toggleCollapsedCalendar}
+								onPress={() => toggleCollapse("calendar")}
 							>
 								<Text style={tw`text-black font-bold text-lg`}>Дата записи</Text>
-								{collapsedCalendar ? (
-									<AntDesign name="right" size={24} color="black" />
-								) : (
+								{activeCollapse === "calendar" ? (
 									<AntDesign name="down" size={24} color="black" />
+								) : (
+									<AntDesign name="right" size={24} color="black" />
 								)}
 							</TouchableOpacity>
-							<Collapsible collapsed={collapsedCalendar} align="center">
+							<Collapsible collapsed={activeCollapse !== "calendar"} align="center">
 								<View style={tw`bg-gray-700 p-4 rounded-lg mb-3`}>
 									<TouchableOpacity
 										onPress={showDatePicker}
