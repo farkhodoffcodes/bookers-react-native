@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 import OtpInput from '@/components/inputs/otpInput';
+import CustomCalendar from '@/components/(calendar)';
 
 export default function CartVerify() {
     const handleOtpComplete = (otp: any) => {
@@ -22,6 +23,7 @@ export default function CartVerify() {
                     <Text style={tw`text-gray-400 mb-10 text-sm text-center mt-5`}>отправить повторно через <Text>00 : 06</Text></Text>
                 </View>
             </TouchableWithoutFeedback>
+            {/* <CustomCalendar/> */}
         </KeyboardAvoidingView>
     );
 }

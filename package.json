@@ -42,6 +42,7 @@
     "react-dom": "18.2.0",
     "react-i18next": "^14.1.2",
     "react-native": "0.74.1",
+    "react-native-calendars": "^1.1305.0",
     "react-native-collapsible": "^1.6.1",
     "react-native-document-picker": "^9.2.0",
     "react-native-fs": "^2.20.0",
