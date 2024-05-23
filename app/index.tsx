@@ -10,6 +10,7 @@ const Index = () => {
         i18n.changeLanguage(language)
         router.push(link)
     }
+    
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logoContainer}>
