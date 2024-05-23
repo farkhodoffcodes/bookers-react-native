@@ -30,7 +30,7 @@ const HistoryUser = () => {
       <NotificationNav name='Натали' backIcon={() => navigation.goBack()} deleteIcon={false} />
     <ScrollView style={tw`bg-gray-900 w-full max-h-screen p-3 `}>
       <View className='mb-20'>
-        <CardsDatail name='Натали' alias='Beauty Wave' master='Женский мастер' location='Мирабадский р-н, ул. Нурафшон, 32' imageUrl='' orders={20} orderZakaz='заказа ,'orderKlent='клинетов' clients={12} rating={5}/>
+        <CardsDatail  name='Натали' alias='Beauty Wave' master='Женский мастер' location='Мирабадский р-н, ул. Нурафшон, 32' imageUrl='' orders={20} orderZakaz='заказа ,'orderKlent='клинетов' clients={12} rating={5}/>
       <View>
       <HistoryCard name='Четверг, 12 января' description='Длительность - 1 час' price='12:30 - 14:00' btnOrText/>
       </View>

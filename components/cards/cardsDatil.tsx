@@ -14,7 +14,7 @@ type MasterCardProps = {
     orderKlent:string;
     clients: number;
     master: string;
-    openChildComponent:JSX.Element
+    openChildComponent?:JSX.Element
     
 };
 

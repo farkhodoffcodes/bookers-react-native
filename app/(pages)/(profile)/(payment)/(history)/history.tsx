@@ -23,7 +23,7 @@ const History = () => {
             <View className='flex flex-row w-full mt-10'>
                 <View className='px-2'>
                     <IconsButton
-                        title="Предстоящие "
+                        title="Предстоящие"
                         backgroundColor="#B9B9C9"
                         textColor="#9C0A35"
                         borderColor="#B9B9C9"
@@ -32,7 +32,7 @@ const History = () => {
                     />
                 </View>
                 <IconsButton
-                    title="Предстоящие "
+                    title="Прошедшие"
                     backgroundColor=""
                     textColor="#828282"
                     borderColor="#828282"
@@ -70,14 +70,8 @@ const History = () => {
                                 
                             } />
                     } />
-
             </View>
-            
-
-
-
         </SafeAreaView>
     )
 }
-
-export default History
+export default History;
