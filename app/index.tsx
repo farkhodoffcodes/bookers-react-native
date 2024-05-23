@@ -6,7 +6,10 @@ import { useTranslation } from 'react-i18next';
 
 const Index = () => {
     const { i18n } = useTranslation();
-
+    function onPress(language: string, link: string) {
+        i18n.changeLanguage(language)
+        router.push(link)
+    }
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logoContainer}>
@@ -23,22 +26,13 @@ const Index = () => {
             </View>
             <View style={{ width: '90%' }}>
                 <View style={{ marginTop: 10 }}>
-                    <ModalButton onPress={() => {
-                        i18n.changeLanguage('ru')
-                        router.push('/firstWelcome')
-                    }} title='Русский' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => onPress('ru', '/firstWelcome')} title='Русский' textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                    <ModalButton onPress={() => {
-                        i18n.changeLanguage('uz')
-                        router.push('/firstWelcome')
-                    }} title="O'zbek" textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => onPress('uz', '/firstWelcome')} title="O'zbek" textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                    <ModalButton onPress={() => {
-                        i18n.changeLanguage('en')
-                        router.push('/firstWelcome')
-                    }} title='English' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => onPress('en', '/firstWelcome')} title='English' textColor='white' backgroundColor='#9C0A35' />
                 </View>
             </View>
         </SafeAreaView>
