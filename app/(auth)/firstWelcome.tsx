@@ -3,13 +3,15 @@ import React from 'react'
 import Greetings from '@/components/greetings/greetings'
 import ModalButton from '@/components/(buttons)/modal-btn'
 import { router } from 'expo-router'
+import { useTranslation } from 'react-i18next';
 
 const Auth = () => {
+  const { t } = useTranslation()
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ height: '90%', justifyContent: 'center', alignItems: 'center' }}>
         <Greetings
-          title='Бронируйте услуги в области красоты и здоровья'
+          title={`${t`greeting`}`}
           img={require('../../assets/images/auth/Frame1.png')}
           bottomTitle='в удобное для вас время'
           bottomText='Бронирование свиданий без хлопот с волосами. Bookers позволяет выбрать день, время и стилиста, дает цену и сроки на все услуги в простом в использовании меню.'
