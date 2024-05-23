@@ -10,7 +10,6 @@ const Index = () => {
         i18n.changeLanguage(language)
         router.push(link)
     }
-    
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logoContainer}>
@@ -33,7 +32,7 @@ const Index = () => {
                     <ModalButton onPress={() => onPress('uz', '/firstWelcome')} title="O'zbek" textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                    <ModalButton onPress={() => onPress('en', '/(pages)/(profile)/(payment)/(create_card)/create_card')} title='English' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => onPress('en', '/firstWelcome')} title='English' textColor='white' backgroundColor='#9C0A35' />
                 </View>
             </View>
         </SafeAreaView>
