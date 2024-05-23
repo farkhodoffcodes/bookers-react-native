@@ -2,13 +2,12 @@ import React from "react";
 import { View, TextInput, Text, StyleSheet } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import TextInputMask from "react-native-text-input-mask";
+import ModalButton from "@/components/(buttons)/modal-btn";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NotificationNav from "@/components/navigation/notification_nav";
 import { useNavigation } from "expo-router";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-const cardNumberRegExp = /^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$/;
+const cardNumberRegExp = /^[0-9]{16}$/;
 const expirationDateRegExp = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
 
 const validationSchema = Yup.object().shape({
@@ -20,46 +19,40 @@ const validationSchema = Yup.object().shape({
     .required("Karta sanasi kerak."),
 });
 
-const CreateCard: React.FC = () => {
-  const navigation = useNavigation();
-
-  return (
-    <Formik
-      initialValues={{ cardNumber: "", expirationDate: "" }}
-      validationSchema={validationSchema}
-      onSubmit={(values) => console.log(values)}
-    >
-      {({
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        values,
-        errors,
-        touched,
-        setFieldValue,
-      }) => (
+const navigation = useNavigation();
+const CreateCard = () => (
+  <Formik
+    initialValues={{ cardNumber: "", expirationDate: "" }}
+    validationSchema={validationSchema}
+    onSubmit={(values) => console.log(values)}
+  >
+    {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+      <View style={styles.container}>
+        <SafeAreaView>
+          <NotificationNav
+            deleteIcon={false}
+            name="Способы оплаты"
+            backIcon={() => navigation.goBack()}
+          />
+        </SafeAreaView>
         <View style={styles.container}>
-          <SafeAreaView>
-            <NotificationNav
-              deleteIcon={false}
-              name="salom"
-              backIcon={() => navigation.goBack()}
-            />
-          </SafeAreaView>
-          <TextInputMask
+          <Text className="text-white mb-5 text-lg">Введите данные карты</Text>
+          <TextInput
             style={[
               styles.input,
-              touched.cardNumber && errors.cardNumber ? styles.errorInput : null,
+              touched.cardNumber && errors.cardNumber
+                ? styles.errorInput
+                : null,
             ]}
-            placeholder="Karta raqami (16 ta raqam)"
+            placeholder="Karta raqami (16 ta raqam) "
+            placeholderTextColor="#828282"
             keyboardType="numeric"
-            onChangeText={(formatted, extracted) => {
-              setFieldValue("cardNumber", extracted);
-            }}
+            maxLength={16}
+            onChangeText={handleChange("cardNumber")}
             onBlur={handleBlur("cardNumber")}
             value={values.cardNumber}
-            mask="[0000] [0000] [0000] [0000]"
           />
+
           {touched.cardNumber && errors.cardNumber && (
             <Text style={styles.errorText}>{errors.cardNumber}</Text>
           )}
@@ -73,6 +66,7 @@ const CreateCard: React.FC = () => {
             ]}
             placeholder="MM/YY"
             keyboardType="numeric"
+            placeholderTextColor="#828282"
             maxLength={5}
             onChangeText={handleChange("expirationDate")}
             onBlur={handleBlur("expirationDate")}
@@ -81,40 +75,45 @@ const CreateCard: React.FC = () => {
           {touched.expirationDate && errors.expirationDate && (
             <Text style={styles.errorText}>{errors.expirationDate}</Text>
           )}
-          <View style={styles.errorText}>
-            <Text>
-              Jo'natish
-            </Text>
-          </View>
-          <Text
-            onPress={() => {handleSubmit}}
-            style={styles.submitButton}
-          >
-            Yuborish
-          </Text>
         </View>
-      )}
-    </Formik>
-  );
-};
+
+        <ModalButton
+          title="Yuborish"
+          backgroundColor="#828282"
+          textColor="#fff"
+          onPress={() => handleSubmit()}
+        />
+      </View>
+    )}
+  </Formik>
+);
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 20,
+    justifyContent: "center",
   },
+
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderRadius: 10,
+    borderColor: "#4B4B64",
+    color: "#fff",
     padding: 10,
     marginBottom: 10,
+    backgroundColor: "#4B4B64",
   },
+
   errorInput: {
     borderColor: "red",
   },
+
   errorText: {
     color: "red",
     marginBottom: 10,
   },
+
   submitButton: {
     backgroundColor: "#007bff",
     color: "#fff",

@@ -15,7 +15,7 @@ const ChatSupport = () => {
             <Navbar back={false} centerName={false} name='Chat' icons={false} />
             <View style={tw`justify-center items-center bg-gray-900 p-4`}>
 
-                {0 &&
+                {false &&
                     <View>
                         <Text style={tw`text-white text-2xl font-bold mb-8`}>Чат</Text>
                         <Ionicons name="chatbubble-ellipses-outline" size={80} color="gray" style={tw`mb-8`} />

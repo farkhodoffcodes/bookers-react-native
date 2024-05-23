@@ -14,7 +14,7 @@ const createAccPage = () => {
             </View>
             <View style={{ width: '90%' }}>
                 <View style={{ marginTop: 10 }}>
-                    <ModalButton onPress={() => router.push('/information')} title='Начать' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => router.push('/numberCreate')} title='Начать' textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{ marginTop: 10 }}>
                     <TouchableOpacity

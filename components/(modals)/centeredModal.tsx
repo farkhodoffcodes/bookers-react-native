@@ -12,6 +12,7 @@ interface ModalProps {
     isFullBtn: boolean; // btn lar row yoki col joylashishi uchun trueOrfalse
     isModal: boolean // modal ochish uchin state uzgaruvchi
     toggleModal: () => void // modalni ochib yopish uchun function m: => const toggleModal = () => setIsModal(!isModal);
+    onConfirm?: () => void;
 }
 
 const CenteredModal: React.FC<ModalProps> = (props) => {
@@ -22,6 +23,7 @@ const CenteredModal: React.FC<ModalProps> = (props) => {
         isFullBtn,
         isModal,
         toggleModal,
+        onConfirm
     } = props
 
     return (
@@ -55,7 +57,7 @@ const CenteredModal: React.FC<ModalProps> = (props) => {
                                 backgroundColor={'#9C0A35'}
                                 title={btnRed}
                                 textColor={'white'}
-                                onPress={toggleModal} // vazifa bajarilishiga qarab click uchun props
+                                onPress={onConfirm} // vazifa bajarilishiga qarab click uchun props
                             />
                         </View>
                     </View>
