@@ -71,7 +71,7 @@ const MasterCard: React.FC<MasterCardProps> = ({
 
 const styles = StyleSheet.create({
 	card: {
-		backgroundColor: "#E5E5E5",
+		backgroundColor: "#B9B9C9",
 		borderRadius: 10,
 		padding: 15,
 		marginVertical: 10,
