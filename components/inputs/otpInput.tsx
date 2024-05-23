@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import OTPTextInput from 'react-native-otp-textinput';
 import ModalButton from '../(buttons)/modal-btn';
 
@@ -25,11 +25,14 @@ const styles = StyleSheet.create({
     },
 });
 
-const OtpInput = () => {
+const OtpInput = ({ onOtpComplete }: any) => {
     const [otp, setOtp] = useState('');
 
     const handleOtpChange = (text: any) => {
         setOtp(text);
+        if (text.length === 4) {
+            onOtpComplete(text);
+        }
     };
 
     return (
