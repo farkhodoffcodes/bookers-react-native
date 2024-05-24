@@ -47,7 +47,7 @@ const profileData: ProfilePersonalCard[] = [
         id: 5,
         label: 'Регион',
         value: 'Ташкент',
-        link: '/(pages)/(profile)/(personal_data)/'
+        link: '/(pages)/(profile)/(personal_data)/region'
     },
     {
         id: 6,

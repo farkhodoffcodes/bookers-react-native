@@ -36,6 +36,7 @@ export default function RootLayout() {
 				<Stack.Screen name="(pages)/(profile)/(personal_data)/personal_data" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(personal_data)/nickname" options={{ headerShown: false }} />
 				<Stack.Screen name="(pages)/(profile)/(personal_data)/fullname" options={{ headerShown: false }} />
+				<Stack.Screen name="(pages)/(profile)/(personal_data)/region" options={{ headerShown: false }} />
 				{/* <Stack.Screen name="(pages)/(profile)/(payment)/(card_page)/card_page" options={{ headerShown: false }} /> */}
 				<Stack.Screen name="(pages)/(profile)/(payment)/(create_card)/createCard" options={{ headerShown: false }} />
 				{/* <Stack.Screen name="(pages)/(profile)/(payment)/(card_verify)/index" options={{ headerShown: false }} /> */}

@@ -32,7 +32,7 @@ const Index = () => {
                     <ModalButton onPress={() => onPress('uz', '/firstWelcome')} title="O'zbek" textColor='white' backgroundColor='#9C0A35' />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                    <ModalButton onPress={() => onPress('en', '/firstWelcome')} title='English' textColor='white' backgroundColor='#9C0A35' />
+                    <ModalButton onPress={() => onPress('en', '/(pages)/(profile)/(personal_data)/personal_data')} title='English' textColor='white' backgroundColor='#9C0A35' />
                 </View>
             </View>
         </SafeAreaView>
