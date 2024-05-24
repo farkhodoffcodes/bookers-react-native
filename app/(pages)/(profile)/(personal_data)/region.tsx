@@ -3,7 +3,6 @@ import React from 'react'
 import NotificationNav from '@/components/navigation/notification_nav'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from 'expo-router'
-import CustomCalendar from '@/components/(calendar)'
 
 const UserDate = () => {
     const navigation = useNavigation();
@@ -11,7 +10,7 @@ const UserDate = () => {
         <View className="bg-[#1E1E1E] flex-1 px-3 min-h-screen">
             <SafeAreaView>
                 <NotificationNav
-                    name="Date"
+                    name="Регион"
                     deleteIcon={false}
                     backIcon={() => navigation.goBack()}
                 />
@@ -19,9 +18,7 @@ const UserDate = () => {
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ paddingBottom: 20 }}
-            >
-                <CustomCalendar />
-            </ScrollView>
+            ></ScrollView>
         </View>
     )
 }

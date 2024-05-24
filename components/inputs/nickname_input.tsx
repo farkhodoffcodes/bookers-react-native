@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, TextInput } from 'react-native';
+import useStore from '@/app/(state_managment)/zustand/(slice)/(profile)/necknameStore';
 
 interface InputProps {
   placeholder: string;
@@ -7,9 +8,7 @@ interface InputProps {
 }
 
 const CustomInput: React.FC<InputProps> = ({ placeholder, valLength = 4 }) => {
-  const [inputValue, setInputValue] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
-  const [isValidFocus, setIsValidFocus] = useState(false);
+  const { inputValue, isFocused, isValidFocus, setInputValue, setIsFocused, setIsValidFocus, } = useStore();
   const isValid = inputValue.length >= valLength;
 
   return (
@@ -19,7 +18,7 @@ const CustomInput: React.FC<InputProps> = ({ placeholder, valLength = 4 }) => {
         style={{ borderColor: isFocused ? '#fff' : isValidFocus && !isValid ? '#ff0000' : 'gray', borderWidth: 1 }}
         placeholder={placeholder}
         placeholderTextColor={isValidFocus && !isValid ? '#ff0000' : 'gray'}
-        value={inputValue}
+        // value={inputValue}
         onChangeText={setInputValue}
         onFocus={() => setIsFocused(true)}
         onBlur={() => {
