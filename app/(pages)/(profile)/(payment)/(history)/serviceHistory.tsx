@@ -8,12 +8,54 @@ import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
+const BtnServes = ({name} : {name: string}) =>{
+  return(
+    <Text className='border-[#828282] 
+    border-2 px-1 py-1 rounded-lg mr-2'
+     >Стрижка</Text>
+  )
+}
+const ScrollBtn = ({ name }: { name: string }) => {
+  return (
+    <TouchableOpacity
+      className='border-2 bg-slate-50  p-3 rounded-xl'
+    >
+      <Text>{name}</Text>
+    </TouchableOpacity>
+  )
+}
+
+const btnData = [
+  {
+    id: 1,
+    name: 'ScrollBtn'
+  },
+  {
+    id: 2,
+    name: 'ScrollBtn 2'
+  },
+  {
+    id: 3,
+    name: 'ScrollBtn 3'
+  },
+]
+const btnServise = [
+  {
+    id:1,
+    name:'Стрижка'
+  },
+  {
+    id:1,
+    name:'Стрижка'
+  }
+]
+
 
 
 
 const ServiceHistory = () => {
   const filters = [
-    "Все",  
+    "Все",
     "Волосы",
     "Ресницы",
     "Ногти",
@@ -85,9 +127,6 @@ const ServiceHistory = () => {
             <TouchableOpacity className=' px-4 py-2 rounded-lg border mr-2 mt-1'>
               <Text className='text-[#828282]'>Укладка</Text>
             </TouchableOpacity>
-
-
-
           </View>
           <Text className='text-sm text-gray-500 mt-2'>
             Мирабадский р-н, ул. Нурафшон, 32
@@ -112,44 +151,18 @@ const ServiceHistory = () => {
             Услуги Натали
           </Text>
           <ScrollView
-           horizontal
-           showsHorizontalScrollIndicator={false}>
-             <TouchableOpacity
-                className='border-2 border-[#828282] p-2 rounded-lg'
-              >
-                <Text>Здоровье и красота волос</Text>
-              </TouchableOpacity>
-        </ScrollView>
-      </View>
-        <View className='bg-[#B9B9C9] rounded-xl'>
+            horizontal
+            showsHorizontalScrollIndicator={false}>
+            {btnData.map(item => <ScrollBtn name={item.name} key={item.id} />)}
+          </ScrollView>
+        </View>
+        <View className='bg-[#B9B9C9] rounded-xl mt-4'>
           <View className='flex flex-row p-3'>
             <Text>Nimadir</Text>
             <Text className='font-bold text-lg mr-2'>Женская для взрослых</Text>
           </View>
-          <View className='flexm justify-between mb-2 p-2 '>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              
-            >
-              <TouchableOpacity
-                className='border-2 border-[#828282] p-2 rounded-lg'
-              >
-                <Text>Здоровье и красота волос</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                className='border-2 border-[#828282] p-2 rounded-lg'
-              >
-                <Text>Здоровье и красота волос</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                className='bg-[#828282] p-2 rounded-lg'
-              >
-                <Text>Hello</Text>
-              </TouchableOpacity>
-            </ScrollView>
-
-
+          <View className='flexm flex-row p-3'>
+          {btnServise.map(item => <BtnServes name={item.name} key={item.id} />)}
           </View>
         </View>
       </View>
@@ -189,6 +202,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "400",
   },
-  
+
 });
 export default ServiceHistory;
