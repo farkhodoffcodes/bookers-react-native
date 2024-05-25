@@ -15,38 +15,45 @@ interface ProfilePersonalCard {
     id: number;
     label: string;
     value: string;
+    link: string
 }
 
 const profileData: ProfilePersonalCard[] = [
     {
         id: 1,
         label: 'Никнейм',
-        value: 'Натали'
+        value: 'Натали',
+        link: '/(pages)/(profile)/(personal_data)/nickname'
     },
     {
         id: 2,
         label: 'Имя Фамилия',
-        value: 'Дайер Наталия'
+        value: 'Дайер Наталия',
+        link: '/(pages)/(profile)/(personal_data)/fullname'
     },
     {
         id: 3,
         label: 'Дата рождения',
-        value: '27/10/1998'
+        value: '27/10/1998',
+        link: '/(pages)/(profile)/(personal_data)/'
     },
     {
         id: 4,
         label: 'Номер телефона',
-        value: '+99 893 171-63-80'
+        value: '+99 893 171-63-80',
+        link: '/(pages)/(profile)/(personal_data)/'
     },
     {
         id: 5,
         label: 'Регион',
-        value: 'Ташкент'
+        value: 'Ташкент',
+        link: '/(pages)/(profile)/(personal_data)/region'
     },
     {
         id: 6,
         label: 'Телеграм',
-        value: '@natalia'
+        value: '@natalia',
+        link: '/(pages)/(profile)/(personal_data)/'
     },
 ]
 
@@ -128,6 +135,7 @@ const PersonalData: React.FC = () => {
                     {profileData.length > 0 && profileData.map(item => (
                         <ProfilePersonalCard
                             key={item.id}
+                            item={item}
                             label={item.label}
                             value={item.value}
                             borderBottom={profileData.length === item.id ? true : false}

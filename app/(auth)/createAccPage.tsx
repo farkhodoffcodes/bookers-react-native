@@ -18,6 +18,7 @@ const createAccPage = () => {
                 </View>
                 <View style={{ marginTop: 10 }}>
                     <TouchableOpacity
+                    onPress={()=>router.push("/(tabs)/")}
                         className='w-full py-3 rounded-2xl border-[2px] border-solid border-[#828282]'
                     >
                         <Text className='text-center text-[#9C0A35] text-[18px]'>Войти через Google</Text>
