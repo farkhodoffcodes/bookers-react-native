@@ -5,9 +5,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from 'expo-router'
 import CustomInput from '@/components/inputs/nickname_input'
 import ModalButton from '@/components/(buttons)/modal-btn'
+import useStore from '@/app/(state_managment)/zustand/(slice)/(profile)/necknameStore'
 
 const FullName = () => {
     const navigation = useNavigation();
+    const {inputValue} = useStore()
+    console.log(inputValue);
+    
     return (
         <View className="bg-[#1E1E1E] flex-1 px-3 min-h-screen">
             <SafeAreaView>
