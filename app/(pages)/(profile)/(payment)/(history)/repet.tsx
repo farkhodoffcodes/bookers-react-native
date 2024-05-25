@@ -3,9 +3,6 @@ import React from 'react'
 import NotificationNav from '@/components/navigation/notification_nav'
 import { router, useNavigation } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import AppointmentCard from '@/components/cards/application_room'
-import CardsDatail from '@/components/cards/cardsDatil'
-import RecordsCard from '@/components/cards/records_card'
 import ServiceCard from '@/components/cards/servicesMenu'
 import Calendar from '@/components/(calendar)'
 import CustomButton from '@/components/(buttons)'
@@ -31,7 +28,7 @@ const Repet = () => {
         <Text className='text-white text-xl'>Сегодня четверг, 23 февраля</Text>
       </View>
       <View>
-        {/* <Calendar/> */}
+        <Calendar/>
       </View>
       <View>
         <Text className='text-white'>Свободное время</Text>
