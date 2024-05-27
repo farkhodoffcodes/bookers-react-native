@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import Navbar from "./../(navigation)/navbar";
+
 import tw from "tailwind-react-native-classnames";
 import Checkbox from "expo-checkbox";
 import Slider from "@react-native-community/slider";
@@ -107,12 +108,12 @@ const SearchPage = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(false);
-		}, 2000); // 2 soniyadan keyin loader yo'qoladi
+		}, 2000);
 	}, []);
 
 	return (
 		<View style={tw`h-full bg-gray-900 py-5`}>
-			<Navbar name="Здоровье и красота волос" icons={false} centerName={true} back={true} />
+			<View>{/* <AntDesign color={"white"} name3333 /> */}</View>
 			<View style={tw`p-5`}>
 				{/* Filter button and checkbox text */}
 				<View style={tw`flex-row items-center justify-between mb-5`}>
