@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import Navbar from "./../(navigation)/navbar";
-
 import tw from "tailwind-react-native-classnames";
 import Checkbox from "expo-checkbox";
 import Slider from "@react-native-community/slider";
@@ -108,7 +107,7 @@ const SearchPage = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(false);
-		}, 2000);
+		}, 2000);4
 	}, []);
 
 	return (
@@ -230,7 +229,7 @@ const SearchPage = () => {
 											maximumTrackTintColor="#000000"
 											thumbTintColor="#800000"
 											disabled={isCheckedNearby}
-										/>
+										/>\
 									</View>
 								</View>
 							</Collapsible>
